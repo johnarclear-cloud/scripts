@@ -1,0 +1,15 @@
+---
+R1:
+  hostname: "192.168.68.201"
+  groups:
+    - juniper
+  data:
+    bgp: 65001
+    snmp: "R1-nor1"
+
+R2:
+  hostname: "192.168.68.202"
+  groups:
+    - juniper
+  data:
+    bgp: 65002

@@ -1,0 +1,9 @@
+---
+snmpcommunity:
+  - "R2-Blah-com1"
+  - "R2-Blah"
+
+OSPF:
+  area: "0.0.0.0"
+  interfaces:
+    - "ge-0/0/0.0"

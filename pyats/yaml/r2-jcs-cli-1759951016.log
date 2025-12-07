@@ -1,0 +1,52 @@
+
+2025-10-08 20:16:56,606: %UNICON-INFO: +++ r2-jcs logfile r2-jcs-cli-1759951016.log +++
+
+2025-10-08 20:16:56,606: %UNICON-INFO: +++ Unicon plugin junos (unicon.plugins.junos) +++
+(john@192.168.68.202) Password:
+
+2025-10-08 20:16:56,794: %UNICON-INFO: +++ connection to spawn: ssh -l john 192.168.68.202, id: 130118936222352 +++
+
+2025-10-08 20:16:56,794: %UNICON-INFO: connection to r2-jcs
+
+Last login: Wed Oct  8 19:15:24 2025 from 192.168.68.101
+--- JUNOS 24.4R1.9 Kernel 64-bit XEN JNPR-15.0-20241104.1ed86e6_buil
+john@r2-jcs> 
+
+2025-10-08 20:16:56,961: %UNICON-INFO: Storing credentials from default as current_credentials
+
+2025-10-08 20:16:56,962: %UNICON-INFO: +++ initializing handle +++
+
+2025-10-08 20:16:57,089: %UNICON-INFO: +++ r2-jcs with via 'cli': executing command 'set cli screen-length 0' +++
+set cli screen-length 0 
+Screen length set to 0
+
+john@r2-jcs> 
+
+2025-10-08 20:16:57,297: %UNICON-INFO: +++ r2-jcs with via 'cli': executing command 'set cli screen-width 0' +++
+set cli screen-width 0 
+Screen width set to 0
+
+john@r2-jcs> 
+
+2025-10-08 20:16:57,821: %UNICON-INFO: +++ r2-jcs with via 'cli': executing command 'show ntp associations' +++
+show ntp associations 
+     remote               refid           auth  st  t  when  poll reach  delay     offset   jitter rootdelay rootdisp
+=====================================================================================================================
+ 22.22.2.4              .INIT.               -  16  u     -  1024    0    0.000    +0.000    0.000    0.000    0.000
+ 99.99.99.20            .INIT.               -  16  u     -  1024    0    0.000    +0.000    0.000    0.000    0.000
+
+john@r2-jcs> 
+
+2025-10-08 20:16:58,100: %UNICON-INFO: +++ r2-jcs with via 'cli': executing command 'show ntp status' +++
+show ntp status 
+associd=0 status=c016 leap_alarm, sync_unspec, 1 event, restart,
+version="ntpd 4.2.8p15-a Thu Dec 19 07:58:36  2024 (1)",
+processor="amd64", system="FreeBSDJNPR-15.0-20241104.1ed86e6_buil",
+leap=11, stratum=16, precision=-24, rootdelay=0.000, rootdisp=0.000,
+refid=.,
+reftime=(no time),
+clock=ec913727.52a906b6  Wed, Oct  8 2025 19:16:55.322, peer=0,
+tc=3, mintc=3, offset=+0.000000, frequency=+0.000, sys_jitter=0.000000,
+clk_jitter=0.000, clk_wander=0.000
+
+john@r2-jcs> 

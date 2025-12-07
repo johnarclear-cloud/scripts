@@ -1,0 +1,192 @@
++++ r1.jcs with via 'cli': executing command 'show configuration' +++
+show configuration 
+## Last commit: 2025-10-08 18:43:38 UTC by john
+version 24.4R1.9;
+system {
+    host-name r1.jcs;
+    root-authentication {
+        encrypted-password "$6$S3tVcLp4$ZctS143IvNkA/Q6kvK.6AcZ8FV8fz0v9Z11iNdYRgLqYdCwXBebLfhRAvseDm13n1oLXTInwJJHXs2zjiZsSQ/"; ## SECRET-DATA
+    }
+    login {
+        user john {
+            full-name "John Clear";
+            uid 2000;
+            class super-user;
+            authentication {
+                encrypted-password "$6$M6RuxVjq$zY6Y5QWzamH1RthczGUAIszD9QjQMVYveG33M6yGCd8AbZMs7EdfHIXPrr7Fsyn8FwFqliIzSwmmNg4Wu0HEI1"; ## SECRET-DATA
+            }
+        }
+    }
+    services {
+        netconf {
+            ssh {
+                port 830;
+            }
+        }
+        ssh {
+            sftp-server;
+        }
+        rest {
+            http {
+                port 8080;
+                addresses 192.168.68.201;
+            }
+            enable-explorer;
+        }
+        web-management {
+            http {
+                interface fxp0.0;
+            }
+            https {
+                system-generated-certificate;
+                interface fxp0.0;
+            }
+        }
+    }
+    syslog {
+        file interactive-commands {
+            interactive-commands any;
+        }
+        file messages {
+            any any;
+            authorization info;
+        }
+    }
+    license {
+        autoupdate {
+            url https://ae1.juniper.net/junos/key_retrieval;
+        }
+    }
+    ntp {
+        server 80.229.208.135;
+        server 99.99.99.14;
+    }
+}
+security {
+    pki {
+        ca-profile ISRG_Root_X1 {
+            ca-identity ISRG_Root_X1;
+            pre-load;
+        }
+        ca-profile Lets_Encrypt {
+            ca-identity Lets_Encrypt;
+            enrollment {
+                url https://acme-v02.api.letsencrypt.org/directory;
+            }
+        }
+    }
+    screen {
+        ids-option untrust-screen {
+            icmp {
+                ping-death;
+            }
+            ip {
+                source-route-option;
+                tear-drop;
+            }
+            tcp {
+                syn-flood {
+                    alarm-threshold 1024;
+                    attack-threshold 200;
+                    source-threshold 1024;
+                    destination-threshold 2048;
+                    queue-size 2000; ## Warning: 'queue-size' is deprecated
+                    timeout 20;
+                }
+                land;
+            }
+        }
+    }
+    policies {
+        from-zone trust to-zone trust {
+            policy default-permit {
+                match {
+                    source-address any;
+                    destination-address any;
+                    application any;
+                }
+                then {
+                    permit;
+                }
+            }
+        }
+        from-zone trust to-zone untrust {
+            policy default-permit {
+                match {
+                    source-address any;
+                    destination-address any;
+                    application any;
+                }
+                then {
+                    permit;
+                }
+            }
+        }
+        pre-id-default-policy {
+            then {
+                log {
+                    session-close;
+                }
+            }
+        }
+    }
+    zones {
+        security-zone trust {
+            tcp-rst;
+            host-inbound-traffic {
+                system-services {
+                    ssh;
+                    ping;
+                    all;
+                }
+                protocols {
+                    ospf;
+                }
+            }
+            interfaces {
+                ge-0/0/0.0;
+            }
+        }
+        security-zone untrust {
+            screen untrust-screen;
+        }
+    }
+}
+interfaces {
+    ge-0/0/0 {
+        description "cross link over to R2";
+        unit 0 {
+            family inet {
+                address 10.0.0.1/30;
+            }
+        }
+    }
+    fxp0 {
+        unit 0 {
+            family inet {
+                address 192.168.68.201/22;
+            }
+        }
+    }
+}
+protocols {
+    ospf {
+        area 0.0.0.0 {
+            interface ge-0/0/0.0;
+        }
+    }
+    bgp {
+        local-as 65656;
+    }
+}
+routing-options {
+    router-id 1.1.1.1;
+}
+vlans {
+    vlan01 {
+        vlan-id 1;
+        l3-interface irb.10;
+    }
+}
+
+john@r1.jcs> 

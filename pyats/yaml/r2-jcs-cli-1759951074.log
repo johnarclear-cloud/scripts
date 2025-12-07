@@ -1,0 +1,29 @@
+
+2025-10-08 20:17:54,344: %UNICON-INFO: +++ r2-jcs logfile r2-jcs-cli-1759951074.log +++
+
+2025-10-08 20:17:54,345: %UNICON-INFO: +++ Unicon plugin junos (unicon.plugins.junos) +++
+(john@192.168.68.202) Password:
+
+2025-10-08 20:17:54,559: %UNICON-INFO: +++ connection to spawn: ssh -l john 192.168.68.202, id: 125575802456112 +++
+
+2025-10-08 20:17:54,560: %UNICON-INFO: connection to r2-jcs
+
+Last login: Wed Oct  8 19:17:44 2025 from 192.168.68.101
+--- JUNOS 24.4R1.9 Kernel 64-bit XEN JNPR-15.0-20241104.1ed86e6_buil
+john@r2-jcs> 
+
+2025-10-08 20:17:54,714: %UNICON-INFO: Storing credentials from default as current_credentials
+
+2025-10-08 20:17:54,714: %UNICON-INFO: +++ initializing handle +++
+
+2025-10-08 20:17:54,839: %UNICON-INFO: +++ r2-jcs with via 'cli': executing command 'set cli screen-length 0' +++
+set cli screen-length 0 
+Screen length set to 0
+
+john@r2-jcs> 
+
+2025-10-08 20:17:55,036: %UNICON-INFO: +++ r2-jcs with via 'cli': executing command 'set cli screen-width 0' +++
+set cli screen-width 0 
+Screen width set to 0
+
+john@r2-jcs> 

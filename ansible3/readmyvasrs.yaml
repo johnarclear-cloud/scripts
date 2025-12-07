@@ -1,0 +1,9 @@
+---
+
+- name: "reading some vars"
+  hosts: all
+
+  tasks:
+    - name: "print some variable stuff"
+      debug:
+        msg: "{{ role_name }}"

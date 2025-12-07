@@ -1,0 +1,36 @@
+---
+- name: Pull some ospf info 
+  hosts: juniper
+  gather_facts: false
+  connection: local 
+  vars:
+    base_url: "http://{{ ansible_host }}:8080/rpc"
+    endpoint: "/get-ospf-neighbor-information"
+    headers:
+      Accept: "application/json"
+      Content-Type: "application/json"
+      Authorization: "basic {{'john:Juniper1' | b64encode }}"
+
+  tasks:
+  - name: Task 1 - sending HTTP request
+    uri:
+      url: "{{ base_url }}{{ endpoint }}"
+      method: POST
+      headers: "{{ headers }}"
+      return_content: true
+    register: result
+
+  - name: "print output"
+    debug:
+      msg: "{{ result }}"
+
+  - name: "Ensure response is Successful"
+    fail:
+      msg: "error the request has failed with the status code {{ result.status }}"
+    when: result.status != 200
+
+  - name: print
+    debug:
+      msg: "the ospf neighbour info for {{ansible_host}} is: {{result.json['ospf-neighbor-information'][0]['ospf-neighbor'][0]['neighbor-address'][0]['data']}}"
+
+

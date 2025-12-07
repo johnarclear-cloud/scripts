@@ -1,0 +1,24 @@
+---
+## this calls the test_module.py script
+- name: "testing ospf configuration"
+  hosts: juniper
+
+  tasks:
+    - name: "push ospf"
+      junipernetworks.junos.junos_config: #THIS IS THE MODULE NAME
+        src: "ospf.j2"
+      register: ospf_result
+
+    - name: "printing out configuration"
+      debug:
+        msg: "{{ ospf_result }}"
+
+    - name: "sending show command"
+      junipernetworks.junos.junos_command:
+        commands:
+        - "show configuration protocols"
+      register: show__ospf_output
+
+    - name: "print show output"
+      debug:
+        msg: "{{ show__ospf_output.stdout[0].split('\n') }}"

@@ -1,0 +1,10 @@
+---
+juniper:
+  platform: "junos"
+  password: "Juniper1"
+  username: "john"
+  data:
+    snmp: "juniper1-community"
+  connection_options:
+    netmiko:
+      platform: "juniper_junos"

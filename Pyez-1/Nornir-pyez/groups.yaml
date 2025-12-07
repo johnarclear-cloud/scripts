@@ -1,0 +1,6 @@
+---
+juniper:
+  platform: "junos"
+  username: "john"
+  data:
+    snmp: "juniper1-community"

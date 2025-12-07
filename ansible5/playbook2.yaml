@@ -1,0 +1,15 @@
+---
+
+## this calls the test_module.py script
+- name: "print out device configuration"
+  hosts: all
+
+  tasks:
+    - name: "obtain configuration from host"
+      use_scrapli: #THIS IS THE MODULE NAME
+        ip: "{{ ansible_host }}"
+      register: result
+
+    - name: "printing out configuration"
+      debug:
+        msg: "{{ result.data.result.split('\n') }}"

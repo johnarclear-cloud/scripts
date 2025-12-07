@@ -1,0 +1,3 @@
+bgp: "65001"
+snmp: "R1-community"
+BANNER: " THIS IS R2"

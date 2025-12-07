@@ -1,0 +1,24 @@
+2025-08-28 14:58:41,884 -  nornir.core -     INFO -        run() - Running task 'print_me' with args {} on 2 hosts
+2025-08-28 15:04:58,694 -  nornir.core -     INFO -        run() - Running task 'print_me' with args {} on 2 hosts
+2025-08-28 15:04:58,696 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'print_me' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir1/example2.py", line 6, in print_me
+    print(f"{task.host.data} is in bgp ASN {task.host.data['bgp']}")
+                                            ~~~~~~~~~~~~~~^^^^^^^
+KeyError: 'bgp'
+
+2025-08-28 15:04:58,696 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'print_me' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir1/example2.py", line 6, in print_me
+    print(f"{task.host.data} is in bgp ASN {task.host.data['bgp']}")
+                                            ~~~~~~~~~~~~~~^^^^^^^
+KeyError: 'bgp'
+
+2025-08-28 15:05:38,652 -  nornir.core -     INFO -        run() - Running task 'print_me' with args {} on 2 hosts
+2025-08-28 15:06:26,760 -  nornir.core -     INFO -        run() - Running task 'print_me' with args {} on 2 hosts
+2025-08-28 15:06:31,246 -  nornir.core -     INFO -        run() - Running task 'print_me' with args {} on 2 hosts
+2025-08-28 15:07:08,037 -  nornir.core -     INFO -        run() - Running task 'print_me' with args {} on 2 hosts

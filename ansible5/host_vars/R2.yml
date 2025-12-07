@@ -1,0 +1,10 @@
+---
+NTP:
+  - server: "22.22.2.4"
+  - server: "99.99.99.20"
+
+OSPF:
+  router-id: "2.2.2.2"
+  configs:
+    - interface: "ge-0/0/0.0"
+      area: "0.0.0.0"

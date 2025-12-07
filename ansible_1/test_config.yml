@@ -1,0 +1,15 @@
+---
+
+- name: "testing basic config"
+  hosts: all 
+
+  tasks:
+    - name: "push some snmp info"
+      junipernetworks.junos.junos_config:
+        lines:
+          - rollback 1
+      register: junos_conf
+
+    - name: "print the config"
+      debug:
+        msg="{{ junos_conf }}"

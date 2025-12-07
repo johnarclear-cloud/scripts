@@ -1,0 +1,9 @@
+
+bgp: 65001
+snmp: "R1-nor999host"
+ospf:
+  rid: "1.1.1.1"
+  networks:
+  - networks: "10.10.10.0"
+    mask: "0.0.0.255"
+loopback: "1.1.1.1/32"

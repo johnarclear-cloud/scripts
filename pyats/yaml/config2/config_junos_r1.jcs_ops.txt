@@ -1,0 +1,224 @@
+{
+  "## Last commit: 2025-10-08 18:43:38 UTC by john": {},
+  "interfaces {": {
+    "fxp0 {": {
+      "unit 0 {": {
+        "family inet {": {
+          "address 192.168.68.201/22;": {}
+        },
+        "}": {}
+      },
+      "}": {}
+    },
+    "ge-0/0/0 {": {
+      "description \"cross link over to R2\";": {},
+      "unit 0 {": {
+        "family inet {": {
+          "address 10.0.0.1/30;": {}
+        },
+        "}": {}
+      },
+      "}": {}
+    },
+    "}": {}
+  },
+  "protocols {": {
+    "bgp {": {
+      "local-as 65656;": {}
+    },
+    "ospf {": {
+      "area 0.0.0.0 {": {
+        "interface ge-0/0/0.0;": {}
+      },
+      "}": {}
+    },
+    "}": {}
+  },
+  "routing-options {": {
+    "router-id 1.1.1.1;": {}
+  },
+  "security {": {
+    "pki {": {
+      "ca-profile ISRG_Root_X1 {": {
+        "ca-identity ISRG_Root_X1;": {},
+        "pre-load;": {}
+      },
+      "ca-profile Lets_Encrypt {": {
+        "ca-identity Lets_Encrypt;": {},
+        "enrollment {": {
+          "url https://acme-v02.api.letsencrypt.org/directory;": {}
+        },
+        "}": {}
+      },
+      "}": {}
+    },
+    "policies {": {
+      "from-zone trust to-zone trust {": {
+        "policy default-permit {": {
+          "match {": {
+            "application any;": {},
+            "destination-address any;": {},
+            "source-address any;": {}
+          },
+          "then {": {
+            "permit;": {}
+          },
+          "}": {}
+        },
+        "}": {}
+      },
+      "from-zone trust to-zone untrust {": {
+        "policy default-permit {": {
+          "match {": {
+            "application any;": {},
+            "destination-address any;": {},
+            "source-address any;": {}
+          },
+          "then {": {
+            "permit;": {}
+          },
+          "}": {}
+        },
+        "}": {}
+      },
+      "pre-id-default-policy {": {
+        "then {": {
+          "log {": {
+            "session-close;": {}
+          },
+          "}": {}
+        },
+        "}": {}
+      },
+      "}": {}
+    },
+    "screen {": {
+      "ids-option untrust-screen {": {
+        "icmp {": {
+          "ping-death;": {}
+        },
+        "ip {": {
+          "source-route-option;": {},
+          "tear-drop;": {}
+        },
+        "tcp {": {
+          "land;": {},
+          "syn-flood {": {
+            "alarm-threshold 1024;": {},
+            "attack-threshold 200;": {},
+            "destination-threshold 2048;": {},
+            "queue-size 2000; ## Warning: 'queue-size' is deprecated": {},
+            "source-threshold 1024;": {},
+            "timeout 20;": {}
+          },
+          "}": {}
+        },
+        "}": {}
+      },
+      "}": {}
+    },
+    "zones {": {
+      "security-zone trust {": {
+        "host-inbound-traffic {": {
+          "protocols {": {
+            "ospf;": {}
+          },
+          "system-services {": {
+            "all;": {},
+            "ping;": {},
+            "ssh;": {}
+          },
+          "}": {}
+        },
+        "interfaces {": {
+          "ge-0/0/0.0;": {}
+        },
+        "tcp-rst;": {},
+        "}": {}
+      },
+      "security-zone untrust {": {
+        "screen untrust-screen;": {}
+      },
+      "}": {}
+    },
+    "}": {}
+  },
+  "system {": {
+    "host-name r1.jcs;": {},
+    "license {": {
+      "autoupdate {": {
+        "url https://ae1.juniper.net/junos/key_retrieval;": {}
+      },
+      "}": {}
+    },
+    "login {": {
+      "user john {": {
+        "authentication {": {
+          "encrypted-password \"$6$M6RuxVjq$zY6Y5QWzamH1RthczGUAIszD9QjQMVYveG33M6yGCd8AbZMs7EdfHIXPrr7Fsyn8FwFqliIzSwmmNg4Wu0HEI1\"; ## SECRET-DATA": {}
+        },
+        "class super-user;": {},
+        "full-name \"John Clear\";": {},
+        "uid 2000;": {},
+        "}": {}
+      },
+      "}": {}
+    },
+    "ntp {": {
+      "server 80.229.208.135;": {},
+      "server 99.99.99.14;": {}
+    },
+    "root-authentication {": {
+      "encrypted-password \"$6$S3tVcLp4$ZctS143IvNkA/Q6kvK.6AcZ8FV8fz0v9Z11iNdYRgLqYdCwXBebLfhRAvseDm13n1oLXTInwJJHXs2zjiZsSQ/\"; ## SECRET-DATA": {}
+    },
+    "services {": {
+      "netconf {": {
+        "ssh {": {
+          "port 830;": {}
+        },
+        "}": {}
+      },
+      "rest {": {
+        "enable-explorer;": {},
+        "http {": {
+          "addresses 192.168.68.201;": {},
+          "port 8080;": {}
+        },
+        "}": {}
+      },
+      "ssh {": {
+        "sftp-server;": {}
+      },
+      "web-management {": {
+        "http {": {
+          "interface fxp0.0;": {}
+        },
+        "https {": {
+          "interface fxp0.0;": {},
+          "system-generated-certificate;": {}
+        },
+        "}": {}
+      },
+      "}": {}
+    },
+    "syslog {": {
+      "file interactive-commands {": {
+        "interactive-commands any;": {}
+      },
+      "file messages {": {
+        "any any;": {},
+        "authorization info;": {}
+      },
+      "}": {}
+    },
+    "}": {}
+  },
+  "version 24.4R1.9;": {},
+  "vlans {": {
+    "vlan01 {": {
+      "l3-interface irb.10;": {},
+      "vlan-id 1;": {}
+    },
+    "}": {}
+  },
+  "}": {}
+}
