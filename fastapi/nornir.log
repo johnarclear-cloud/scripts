@@ -1,0 +1,526 @@
+2025-12-03 21:41:27,867 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show configuration'} on 2 hosts
+2025-12-03 21:41:27,876 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 449, in ConnectHandler
+    device_type = kwargs["device_type"]
+                  ~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'device_type'
+
+2025-12-03 21:41:27,877 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 449, in ConnectHandler
+    device_type = kwargs["device_type"]
+                  ~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'device_type'
+
+2025-12-03 21:42:47,438 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show configuration'} on 2 hosts
+2025-12-03 21:42:47,442 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 449, in ConnectHandler
+    device_type = kwargs["device_type"]
+                  ~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'device_type'
+
+2025-12-03 21:42:47,443 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 449, in ConnectHandler
+    device_type = kwargs["device_type"]
+                  ~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'device_type'
+
+2025-12-03 21:48:12,968 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-03 21:48:16,410 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-03 21:48:35,732 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show configuration'} on 2 hosts
+2025-12-03 21:48:35,735 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 449, in ConnectHandler
+    device_type = kwargs["device_type"]
+                  ~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'device_type'
+
+2025-12-03 21:48:35,736 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 449, in ConnectHandler
+    device_type = kwargs["device_type"]
+                  ~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'device_type'
+
+2025-12-03 21:49:23,428 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-03 21:50:02,230 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-03 21:50:04,297 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-03 21:50:10,129 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-03 21:52:02,349 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-03 21:52:17,394 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show configuration'} on 2 hosts
+2025-12-03 21:52:17,401 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 449, in ConnectHandler
+    device_type = kwargs["device_type"]
+                  ~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'device_type'
+
+2025-12-03 21:52:17,403 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 449, in ConnectHandler
+    device_type = kwargs["device_type"]
+                  ~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'device_type'
+
+2025-12-03 22:15:34,385 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-03 22:15:38,952 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-03 22:15:40,286 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-03 22:15:59,421 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show configuration'} on 2 hosts
+2025-12-03 22:15:59,424 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 449, in ConnectHandler
+    device_type = kwargs["device_type"]
+                  ~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'device_type'
+
+2025-12-03 22:15:59,426 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 449, in ConnectHandler
+    device_type = kwargs["device_type"]
+                  ~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'device_type'
+
+2025-12-04 09:07:27,503 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show configuration'} on 2 hosts
+2025-12-04 09:07:27,517 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 449, in ConnectHandler
+    device_type = kwargs["device_type"]
+                  ~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'device_type'
+
+2025-12-04 09:07:27,521 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 449, in ConnectHandler
+    device_type = kwargs["device_type"]
+                  ~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'device_type'
+
+2025-12-04 09:16:35,079 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show configuration'} on 2 hosts
+2025-12-04 09:16:35,086 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 449, in ConnectHandler
+    device_type = kwargs["device_type"]
+                  ~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'device_type'
+
+2025-12-04 09:16:35,085 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 449, in ConnectHandler
+    device_type = kwargs["device_type"]
+                  ~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'device_type'
+
+2025-12-04 09:21:50,042 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-04 09:23:15,532 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-04 09:24:53,872 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-04 09:24:55,708 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-04 09:25:05,588 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show configuration'} on 2 hosts
+2025-12-04 09:31:53,924 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show interface terse'} on 2 hosts
+2025-12-04 10:47:44,080 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show configuration'} on 2 hosts
+2025-12-04 10:47:44,768 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show configuration'} on 2 hosts
+2025-12-04 10:47:56,409 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show configuration'} on 2 hosts
+2025-12-04 10:49:42,174 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show configuration'} on 2 hosts
+2025-12-04 10:52:11,757 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show configuration'} on 2 hosts
+2025-12-04 12:03:41,535 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show configuration'} on 2 hosts
+2025-12-04 12:04:15,734 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show configuration'} on 2 hosts
+2025-12-04 12:04:49,076 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show configuration'} on 2 hosts
+2025-12-04 12:04:50,912 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show configuration'} on 2 hosts
+2025-12-04 12:07:36,660 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show configuration'} on 2 hosts
+2025-12-04 12:08:23,301 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show configuration'} on 2 hosts
+2025-12-04 12:10:47,721 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show configuration'} on 2 hosts
+2025-12-04 12:38:47,448 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show configuration'} on 2 hosts
+2025-12-04 12:40:18,594 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show configuration'} on 2 hosts
+2025-12-04 12:41:10,370 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show interfaces terse'} on 2 hosts
+2025-12-04 12:41:54,307 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show interfaces terse'} on 2 hosts
+2025-12-04 12:42:33,918 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show interfaces terse'} on 2 hosts
+2025-12-04 12:44:21,815 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show bgp summary'} on 2 hosts
+2025-12-04 13:25:31,064 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-04 13:26:27,417 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-04 13:27:08,224 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-04 13:27:10,769 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show bgp summary'} on 1 hosts
+2025-12-04 13:27:38,617 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show bgp summary'} on 1 hosts
+2025-12-04 13:27:41,399 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show bgp summary'} on 1 hosts
+2025-12-04 13:28:53,107 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show bgp summary'} on 1 hosts
+2025-12-04 13:28:53,665 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show bgp summary'} on 1 hosts
+2025-12-04 13:29:17,249 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show bgp summary'} on 1 hosts
+2025-12-04 13:29:25,216 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show bgp summary'} on 1 hosts
+2025-12-04 13:30:33,358 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show bgp summary'} on 1 hosts
+2025-12-04 13:38:18,575 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show bgp summary'} on 1 hosts
+2025-12-04 13:39:56,319 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show bgp summary'} on 1 hosts
+2025-12-04 13:52:14,864 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show bgp summary'} on 2 hosts
+2025-12-04 13:52:21,838 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-04 13:52:27,073 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-04 13:52:32,414 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-04 13:52:36,432 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show bgp summary'} on 1 hosts
+2025-12-04 13:52:39,273 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-04 13:53:03,424 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-04 13:53:11,687 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-12-04 13:53:13,829 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show bgp summary'} on 1 hosts
+2025-12-04 13:59:13,194 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected

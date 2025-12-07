@@ -1,0 +1,413 @@
+2025-08-29 08:31:48,969 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 08:32:00,038 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 08:40:55,437 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 08:40:55,439 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'load_my_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir3/runbook1.py", line 9, in load_my_vars
+    task.host["host_vars"] = host_data.results
+                             ^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 253, in __getattr__
+    return getattr(self[0], name)
+AttributeError: 'Result' object has no attribute 'results'. Did you mean: 'result'?
+
+2025-08-29 08:40:55,440 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'load_my_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir3/runbook1.py", line 9, in load_my_vars
+    task.host["host_vars"] = host_data.results
+                             ^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 253, in __getattr__
+    return getattr(self[0], name)
+AttributeError: 'Result' object has no attribute 'results'. Did you mean: 'result'?
+
+2025-08-29 08:44:14,955 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 08:53:17,983 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 08:53:17,987 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+         ~~~~^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/group_varsjunos.yaml'
+
+2025-08-29 08:53:17,987 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+         ~~~~^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/group_varsjunos.yaml'
+
+2025-08-29 08:53:17,988 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'load_my_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir3/runbook1.py", line 12, in load_my_vars
+    group_data = task.run(task=load_yaml, file=f"/group_vars{task.host.platform}.yaml")
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2025-08-29 08:53:17,988 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'load_my_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir3/runbook1.py", line 12, in load_my_vars
+    group_data = task.run(task=load_yaml, file=f"/group_vars{task.host.platform}.yaml")
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2025-08-29 09:06:05,621 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 09:06:42,977 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 09:21:55,888 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 09:23:25,067 -  nornir.core -     INFO -        run() - Running task 'generate_config' with args {} on 2 hosts
+2025-08-29 09:25:43,836 -  nornir.core -     INFO -        run() - Running task 'generate_config' with args {} on 2 hosts
+2025-08-29 09:25:43,845 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "templates/juniper/snmp.j2", line 1, in top-level template code
+    set snmp community {{ host.hosts_vars.snmp }}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jinja2/environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'nornir.core.inventory.Host object' has no attribute 'hosts_vars'
+
+2025-08-29 09:25:43,846 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "templates/juniper/snmp.j2", line 1, in top-level template code
+    set snmp community {{ host.hosts_vars.snmp }}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jinja2/environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'nornir.core.inventory.Host object' has no attribute 'hosts_vars'
+
+2025-08-29 09:25:43,846 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'generate_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir3/runbook2.py", line 17, in generate_config
+    snmp_template = task.run(
+        task=template_file,
+        template="snmp.j2",
+        path=f"./templates/{task.host['vendor']}/",
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2025-08-29 09:25:43,846 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'generate_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir3/runbook2.py", line 17, in generate_config
+    snmp_template = task.run(
+        task=template_file,
+        template="snmp.j2",
+        path=f"./templates/{task.host['vendor']}/",
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2025-08-29 09:26:23,933 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 09:26:23,935 -  nornir.core -     INFO -        run() - Running task 'generate_config' with args {} on 2 hosts
+2025-08-29 09:26:23,940 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "templates/juniper/snmp.j2", line 1, in top-level template code
+    set snmp community {{ host.hosts_vars.snmp }}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jinja2/environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'nornir.core.inventory.Host object' has no attribute 'hosts_vars'
+
+2025-08-29 09:26:23,940 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'generate_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir3/runbook2.py", line 17, in generate_config
+    snmp_template = task.run(
+        task=template_file,
+        template="snmp.j2",
+        path=f"./templates/{task.host['vendor']}/",
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2025-08-29 09:26:23,941 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "templates/juniper/snmp.j2", line 1, in top-level template code
+    set snmp community {{ host.hosts_vars.snmp }}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jinja2/environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'nornir.core.inventory.Host object' has no attribute 'hosts_vars'
+
+2025-08-29 09:26:23,941 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'generate_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir3/runbook2.py", line 17, in generate_config
+    snmp_template = task.run(
+        task=template_file,
+        template="snmp.j2",
+        path=f"./templates/{task.host['vendor']}/",
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2025-08-29 09:27:37,690 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 09:27:37,692 -  nornir.core -     INFO -        run() - Running task 'generate_config' with args {} on 2 hosts
+2025-08-29 09:27:37,697 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "templates/juniper/snmp.j2", line 1, in top-level template code
+    set snmp community {{ host.hosts_vars.snmp }}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jinja2/environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'nornir.core.inventory.Host object' has no attribute 'hosts_vars'
+
+2025-08-29 09:27:37,698 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "templates/juniper/snmp.j2", line 1, in top-level template code
+    set snmp community {{ host.hosts_vars.snmp }}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jinja2/environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'nornir.core.inventory.Host object' has no attribute 'hosts_vars'
+
+2025-08-29 09:27:37,698 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'generate_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir3/runbook2.py", line 17, in generate_config
+    snmp_template = task.run(
+        task=template_file,
+        template="snmp.j2",
+        path=f"./templates/{task.host['vendor']}/",
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2025-08-29 09:27:37,699 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'generate_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir3/runbook2.py", line 17, in generate_config
+    snmp_template = task.run(
+        task=template_file,
+        template="snmp.j2",
+        path=f"./templates/{task.host['vendor']}/",
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2025-08-29 09:27:56,564 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 09:27:56,567 -  nornir.core -     INFO -        run() - Running task 'generate_config' with args {} on 2 hosts
+2025-08-29 09:27:56,571 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "templates/juniper/snmp.j2", line 1, in top-level template code
+    set snmp community {{ host.host_vars.snmp }}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'snmp'
+
+2025-08-29 09:27:56,572 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'generate_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir3/runbook2.py", line 17, in generate_config
+    snmp_template = task.run(
+        task=template_file,
+        template="snmp.j2",
+        path=f"./templates/{task.host['vendor']}/",
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2025-08-29 09:28:33,185 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 09:28:33,187 -  nornir.core -     INFO -        run() - Running task 'generate_config' with args {} on 2 hosts
+2025-08-29 09:29:40,809 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 09:29:40,811 -  nornir.core -     INFO -        run() - Running task 'generate_config' with args {} on 2 hosts
+2025-08-29 09:33:14,807 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 09:34:22,520 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 09:34:31,835 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 09:37:34,293 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 09:40:51,105 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 09:42:03,026 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 09:42:28,654 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 09:42:43,919 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 09:42:43,921 -  nornir.core -     INFO -        run() - Running task 'generate_config' with args {} on 2 hosts
+2025-08-29 09:43:23,577 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 09:43:23,579 -  nornir.core -     INFO -        run() - Running task 'generate_config' with args {} on 2 hosts
+2025-08-29 10:05:19,615 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 10:05:19,617 -  nornir.core -     INFO -        run() - Running task 'generate_config' with args {} on 2 hosts
+2025-08-29 10:07:49,282 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-08-29 10:07:49,284 -  nornir.core -     INFO -        run() - Running task 'generate_config' with args {} on 2 hosts
+2025-12-04 15:11:27,258 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-12-04 15:11:38,712 -  nornir.core -     INFO -        run() - Running task 'load_my_vars' with args {} on 2 hosts
+2025-12-04 15:11:38,715 -  nornir.core -     INFO -        run() - Running task 'generate_config' with args {} on 2 hosts
+2025-12-04 15:11:54,316 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_config.py", line 38, in netmiko_send_config
+    result = net_connect.send_config_set(config_commands=config_commands, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 111, in wrapper_decorator
+    return_val = func(self, *args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 2341, in send_config_set
+    output += self.read_until_pattern(
+              ~~~~~~~~~~~~~~~~~~~~~~~^
+        pattern=pattern, read_timeout=read_timeout, re_flags=re.M
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 755, in read_until_pattern
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+
+Pattern not detected: '(?:john@r1\\.jcs.*$|#.*$)' in output.
+
+Things you might try to fix this:
+1. Adjust the regex pattern to better identify the terminating string. Note, in
+many situations the pattern is automatically based on the network device's prompt.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2025-12-04 15:11:54,317 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'generate_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir3/runbook2.py", line 27, in generate_config
+    task.run(task = netmiko_send_config, config_commands = snmp_config )
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_config (failed)
+
+
+2025-12-04 15:11:54,325 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_config.py", line 38, in netmiko_send_config
+    result = net_connect.send_config_set(config_commands=config_commands, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 111, in wrapper_decorator
+    return_val = func(self, *args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 2341, in send_config_set
+    output += self.read_until_pattern(
+              ~~~~~~~~~~~~~~~~~~~~~~~^
+        pattern=pattern, read_timeout=read_timeout, re_flags=re.M
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 755, in read_until_pattern
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+
+Pattern not detected: '(?:john@r2\\-jcs.*$|#.*$)' in output.
+
+Things you might try to fix this:
+1. Adjust the regex pattern to better identify the terminating string. Note, in
+many situations the pattern is automatically based on the network device's prompt.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2025-12-04 15:11:54,326 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'generate_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir3/runbook2.py", line 27, in generate_config
+    task.run(task = netmiko_send_config, config_commands = snmp_config )
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_config (failed)
+
+

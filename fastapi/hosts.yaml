@@ -1,0 +1,22 @@
+---
+R1:
+  hostname: "192.168.68.201"
+  platform: "juniper_junos"
+  username: "john"
+  password: "Juniper1"
+  groups:
+    - juniper
+  data:
+    bgp: 65001
+    device_name: r1
+
+R2:
+  hostname: "192.168.68.202"
+  platform: "juniper_junos"
+  username: "john"
+  password: "Juniper1"
+  groups:
+    - juniper
+  data:
+    bgp: 65002
+    device_name: r2

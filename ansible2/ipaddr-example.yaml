@@ -1,0 +1,21 @@
+---
+
+- name: "testing the ip addr filter"
+  hosts: juniper
+
+  tasks:
+    - name: "print some variable"
+      debug:
+        msg: "{{ ntp_server | ansible.utils.ipv4 }}"
+      register: "ntp_test"
+
+    - name: "push some NTP configuration"
+      junipernetworks.junos.junos_config:
+        lines:
+        - set system ntp server {{ntp_server}}
+      register: test_result
+      when: "ntp_test.msg != false"
+
+    - name: "test reuslting action"
+      debug:
+        msg: " {{ test_result }}"

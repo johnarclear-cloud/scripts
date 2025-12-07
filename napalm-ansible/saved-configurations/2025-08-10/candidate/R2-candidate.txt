@@ -1,0 +1,209 @@
+
+## Last changed: 2025-08-10 20:23:36 UTC
+version 24.4R1.9;
+system {
+    host-name r2-jcs;
+    root-authentication {
+        encrypted-password "$6$ooOqQNO6$OrHh43zV3a54JBu5edh913ADKB0GTloHLUJvr95Gvse8Pc2vIc8MlCMydUaC1jyDl01pIg3uAQ0CUJ3EyNVVc1";
+    }
+    login {
+        user john {
+            full-name "John Clear";
+            uid 2000;
+            class super-user;
+            authentication {
+                encrypted-password "$6$cuDtQsbt$bn0XK/ybEWJtyluvsfNp/8ETcGT.y7/kfWQjEiMyqxzQwIx0NQ3iXMBj71bQ3ySMh1SVy.mDVkIHnflyvRc0G/";
+            }
+        }
+    }
+    services {
+        netconf {
+            ssh {
+                port 830;
+            }
+        }
+        ssh {
+            sftp-server;
+        }
+        web-management {
+            http {
+                interface fxp0.0;
+            }
+            https {
+                system-generated-certificate;
+                interface fxp0.0;
+            }
+        }
+    }
+    syslog {
+        file interactive-commands {
+            interactive-commands any;
+        }
+        file messages {
+            any any;
+            authorization info;
+        }
+    }
+    license {
+        autoupdate {
+            url https://ae1.juniper.net/junos/key_retrieval;
+        }
+    }
+    ntp {
+        server 22.22.2.4;
+        server 99.99.99.20;
+    }
+}
+security {
+    pki {
+        ca-profile ISRG_Root_X1 {
+            ca-identity ISRG_Root_X1;
+            pre-load;
+        }
+        ca-profile Lets_Encrypt {
+            ca-identity Lets_Encrypt;
+            enrollment {
+                url https://acme-v02.api.letsencrypt.org/directory;
+            }
+        }
+    }
+    screen {
+        ids-option untrust-screen {
+            icmp {
+                ping-death;
+            }
+            ip {
+                source-route-option;
+                tear-drop;
+            }
+            tcp {
+                syn-flood {
+                    alarm-threshold 1024;
+                    attack-threshold 200;
+                    source-threshold 1024;
+                    destination-threshold 2048;
+                    queue-size 2000;
+                    timeout 20;
+                }
+                land;
+            }
+        }
+    }
+    policies {
+        from-zone trust to-zone trust {
+            policy default-permit {
+                match {
+                    source-address any;
+                    destination-address any;
+                    application any;
+                }
+                then {
+                    permit;
+                }
+            }
+        }
+        from-zone trust to-zone untrust {
+            policy default-permit {
+                match {
+                    source-address any;
+                    destination-address any;
+                    application any;
+                }
+                then {
+                    permit;
+                }
+            }
+        }
+        pre-id-default-policy {
+            then {
+                log {
+                    session-close;
+                }
+            }
+        }
+    }
+    zones {
+        security-zone trust {
+            tcp-rst;
+        }
+        security-zone untrust {
+            screen untrust-screen;
+        }
+    }
+}
+interfaces {
+    ge-0/0/0 {
+        gigether-options {
+            802.3ad ae0;
+        }
+    }
+    ge-0/0/1 {
+        gigether-options {
+            802.3ad ae0;
+        }
+    }
+    ae0 {
+        mtu 9100;
+        aggregated-ether-options {
+            link-speed 1g;
+            lacp {
+                active;
+                periodic fast;
+            }
+        }
+        unit 0 {
+            description "Trunk: all";
+            family ethernet-switching {
+                interface-mode trunk;
+                vlan {
+                    members all;
+                }
+                recovery-timeout 60;
+            }
+        }
+    }
+    fxp0 {
+        unit 0 {
+            family inet {
+                address 192.168.68.202/22;
+            }
+        }
+    }
+    irb {
+        unit 10 {
+            family inet {
+                address 10.0.0.1/24;
+            }
+        }
+    }
+    lo0 {
+        unit 0 {
+            family inet {
+                address 127.0.0.1/32;
+            }
+        }
+    }
+}
+snmp {
+    community Ansible1;
+    community Ansible2;
+}
+protocols {
+    ospf {
+        area 0.0.0.0 {
+            interface ge-0/0/0.0;
+            interface ge-0/0/2.2;
+        }
+    }
+    rstp {
+        interface ae0 {
+            mode point-to-point;
+        }
+    }
+}
+vlans {
+    vlan01 {
+        vlan-id 1;
+        l3-interface irb.10;
+    }
+}

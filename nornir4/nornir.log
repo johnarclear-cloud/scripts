@@ -1,0 +1,870 @@
+2025-09-08 17:49:08,092 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-08 17:49:08,648 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'get_arp_info' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir4/run1.py", line 29, in get_arp_info
+    mac_addy = dict_response["arp-table-information"]["arp-table-entry"]["mac-address"]
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+
+2025-09-08 17:49:08,845 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'get_arp_info' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir4/run1.py", line 29, in get_arp_info
+    mac_addy = dict_response["arp-table-information"]["arp-table-entry"]["mac-address"]
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+
+2025-09-08 18:03:29,979 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-08 18:03:35,016 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'http_method' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_exceptions.py", line 10, in map_exceptions
+    yield
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_backends/sync.py", line 100, in connect_tcp
+    sock = socket.create_connection(
+        address,
+        timeout,
+        source_address=source_address,
+    )
+  File "/usr/lib/python3.13/socket.py", line 864, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.13/socket.py", line 849, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 60, in map_httpcore_exceptions
+    yield
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 218, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection_pool.py", line 262, in handle_request
+    raise exc
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection_pool.py", line 245, in handle_request
+    response = connection.handle_request(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection.py", line 92, in handle_request
+    raise exc
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection.py", line 69, in handle_request
+    stream = self._connect(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection.py", line 117, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_backends/sync.py", line 99, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_http/tasks.py", line 31, in http_method
+    response = httpx.request(method, url, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_api.py", line 100, in request
+    return client.request(
+           ~~~~~~~~~~~~~~^
+        method=method,
+        ^^^^^^^^^^^^^^
+    ...<8 lines>...
+        follow_redirects=follow_redirects,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 814, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 901, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 929, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 966, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 1002, in _send_single_request
+    response = transport.handle_request(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 217, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 77, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+
+2025-09-08 18:03:35,016 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'get_arp_info' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir4/run1.py", line 16, in get_arp_info
+    response = task.run(
+        task=http_method,
+    ...<4 lines>...
+        raise_for_status=True,
+        )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: http_method (failed)
+
+
+2025-09-10 18:39:10,619 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-10 18:39:13,706 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'http_method' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_exceptions.py", line 10, in map_exceptions
+    yield
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_backends/sync.py", line 100, in connect_tcp
+    sock = socket.create_connection(
+        address,
+        timeout,
+        source_address=source_address,
+    )
+  File "/usr/lib/python3.13/socket.py", line 864, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.13/socket.py", line 849, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 60, in map_httpcore_exceptions
+    yield
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 218, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection_pool.py", line 262, in handle_request
+    raise exc
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection_pool.py", line 245, in handle_request
+    response = connection.handle_request(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection.py", line 92, in handle_request
+    raise exc
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection.py", line 69, in handle_request
+    stream = self._connect(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection.py", line 117, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_backends/sync.py", line 99, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_http/tasks.py", line 31, in http_method
+    response = httpx.request(method, url, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_api.py", line 100, in request
+    return client.request(
+           ~~~~~~~~~~~~~~^
+        method=method,
+        ^^^^^^^^^^^^^^
+    ...<8 lines>...
+        follow_redirects=follow_redirects,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 814, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 901, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 929, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 966, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 1002, in _send_single_request
+    response = transport.handle_request(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 217, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 77, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 113] No route to host
+
+2025-09-10 18:39:13,707 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'get_arp_info' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir4/run1.py", line 16, in get_arp_info
+    response = task.run(
+        task=http_method,
+    ...<4 lines>...
+        raise_for_status=True,
+        )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: http_method (failed)
+
+
+2025-09-10 18:39:13,707 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'http_method' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_exceptions.py", line 10, in map_exceptions
+    yield
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_backends/sync.py", line 100, in connect_tcp
+    sock = socket.create_connection(
+        address,
+        timeout,
+        source_address=source_address,
+    )
+  File "/usr/lib/python3.13/socket.py", line 864, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.13/socket.py", line 849, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 60, in map_httpcore_exceptions
+    yield
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 218, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection_pool.py", line 262, in handle_request
+    raise exc
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection_pool.py", line 245, in handle_request
+    response = connection.handle_request(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection.py", line 92, in handle_request
+    raise exc
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection.py", line 69, in handle_request
+    stream = self._connect(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection.py", line 117, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_backends/sync.py", line 99, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_http/tasks.py", line 31, in http_method
+    response = httpx.request(method, url, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_api.py", line 100, in request
+    return client.request(
+           ~~~~~~~~~~~~~~^
+        method=method,
+        ^^^^^^^^^^^^^^
+    ...<8 lines>...
+        follow_redirects=follow_redirects,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 814, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 901, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 929, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 966, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 1002, in _send_single_request
+    response = transport.handle_request(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 217, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 77, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 113] No route to host
+
+2025-09-10 18:39:13,708 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'get_arp_info' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir4/run1.py", line 16, in get_arp_info
+    response = task.run(
+        task=http_method,
+    ...<4 lines>...
+        raise_for_status=True,
+        )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: http_method (failed)
+
+
+2025-09-10 18:40:50,770 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-10 18:40:53,873 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'http_method' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_exceptions.py", line 10, in map_exceptions
+    yield
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_backends/sync.py", line 100, in connect_tcp
+    sock = socket.create_connection(
+        address,
+        timeout,
+        source_address=source_address,
+    )
+  File "/usr/lib/python3.13/socket.py", line 864, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.13/socket.py", line 849, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 60, in map_httpcore_exceptions
+    yield
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 218, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection_pool.py", line 262, in handle_request
+    raise exc
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection_pool.py", line 245, in handle_request
+    response = connection.handle_request(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection.py", line 92, in handle_request
+    raise exc
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection.py", line 69, in handle_request
+    stream = self._connect(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection.py", line 117, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_backends/sync.py", line 99, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_http/tasks.py", line 31, in http_method
+    response = httpx.request(method, url, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_api.py", line 100, in request
+    return client.request(
+           ~~~~~~~~~~~~~~^
+        method=method,
+        ^^^^^^^^^^^^^^
+    ...<8 lines>...
+        follow_redirects=follow_redirects,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 814, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 901, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 929, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 966, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 1002, in _send_single_request
+    response = transport.handle_request(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 217, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 77, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 113] No route to host
+
+2025-09-10 18:40:53,874 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'http_method' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_exceptions.py", line 10, in map_exceptions
+    yield
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_backends/sync.py", line 100, in connect_tcp
+    sock = socket.create_connection(
+        address,
+        timeout,
+        source_address=source_address,
+    )
+  File "/usr/lib/python3.13/socket.py", line 864, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.13/socket.py", line 849, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 60, in map_httpcore_exceptions
+    yield
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 218, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection_pool.py", line 262, in handle_request
+    raise exc
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection_pool.py", line 245, in handle_request
+    response = connection.handle_request(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection.py", line 92, in handle_request
+    raise exc
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection.py", line 69, in handle_request
+    stream = self._connect(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection.py", line 117, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_backends/sync.py", line 99, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_http/tasks.py", line 31, in http_method
+    response = httpx.request(method, url, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_api.py", line 100, in request
+    return client.request(
+           ~~~~~~~~~~~~~~^
+        method=method,
+        ^^^^^^^^^^^^^^
+    ...<8 lines>...
+        follow_redirects=follow_redirects,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 814, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 901, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 929, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 966, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 1002, in _send_single_request
+    response = transport.handle_request(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 217, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 77, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 113] No route to host
+
+2025-09-10 18:40:53,875 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'get_arp_info' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir4/run1.py", line 16, in get_arp_info
+    response = task.run(
+        task=http_method,
+    ...<4 lines>...
+        raise_for_status=True,
+        )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: http_method (failed)
+
+
+2025-09-10 18:40:53,876 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'get_arp_info' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir4/run1.py", line 16, in get_arp_info
+    response = task.run(
+        task=http_method,
+    ...<4 lines>...
+        raise_for_status=True,
+        )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: http_method (failed)
+
+
+2025-09-10 18:42:15,869 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-10 18:43:39,990 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-10 18:43:45,023 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'http_method' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_exceptions.py", line 10, in map_exceptions
+    yield
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_backends/sync.py", line 28, in read
+    return self._sock.recv(max_bytes)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 60, in map_httpcore_exceptions
+    yield
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 218, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection_pool.py", line 262, in handle_request
+    raise exc
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection_pool.py", line 245, in handle_request
+    response = connection.handle_request(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/connection.py", line 96, in handle_request
+    return self._connection.handle_request(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/http11.py", line 121, in handle_request
+    raise exc
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/http11.py", line 99, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/http11.py", line 164, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_sync/http11.py", line 200, in _receive_event
+    data = self._network_stream.read(
+        self.READ_NUM_BYTES, timeout=timeout
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_backends/sync.py", line 26, in read
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_http/tasks.py", line 31, in http_method
+    response = httpx.request(method, url, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_api.py", line 100, in request
+    return client.request(
+           ~~~~~~~~~~~~~~^
+        method=method,
+        ^^^^^^^^^^^^^^
+    ...<8 lines>...
+        follow_redirects=follow_redirects,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 814, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 901, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 929, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 966, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_client.py", line 1002, in _send_single_request
+    response = transport.handle_request(request)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 217, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_transports/default.py", line 77, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: timed out
+
+2025-09-10 18:43:45,024 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'get_arp_info' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir4/run1.py", line 16, in get_arp_info
+    response = task.run(
+        task=http_method,
+    ...<4 lines>...
+        raise_for_status=True,
+        )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: http_method (failed)
+
+
+2025-09-10 18:49:40,231 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-10 18:59:35,108 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-10 19:18:36,204 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-10 19:19:48,744 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-10 19:21:28,574 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-10 19:22:00,110 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-10 19:22:33,829 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-10 19:24:58,337 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-10 19:24:58,828 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'get_arp_info' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir4/run1.py", line 25, in get_arp_info
+    mac_addy = dict_response['arp-table-information']['arp-table-entry']['"mac-address']
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+
+2025-09-10 19:24:58,933 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'get_arp_info' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir4/run1.py", line 25, in get_arp_info
+    mac_addy = dict_response['arp-table-information']['arp-table-entry']['"mac-address']
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+
+2025-09-10 19:25:41,480 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-10 19:25:41,814 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'get_arp_info' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir4/run1.py", line 25, in get_arp_info
+    mac_addy = dict_response["arp-table-information"]["arp-table-entry"]["mac-address"]
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+
+2025-09-10 19:25:41,818 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'get_arp_info' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir4/run1.py", line 25, in get_arp_info
+    mac_addy = dict_response["arp-table-information"]["arp-table-entry"]["mac-address"]
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+
+2025-09-10 19:26:13,429 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-10 19:26:13,733 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'get_arp_info' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir4/run1.py", line 25, in get_arp_info
+    mac_addy = dict_response["arp-table-information"]["arp-table-entry"]["mac-address"]
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+
+2025-09-10 19:26:13,750 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'get_arp_info' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir4/run1.py", line 25, in get_arp_info
+    mac_addy = dict_response["arp-table-information"]["arp-table-entry"]["mac-address"]
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+
+2025-09-10 19:26:45,958 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-10 19:27:08,007 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-10 19:27:44,881 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-10 19:28:03,085 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-10 20:12:32,089 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-10 20:12:32,567 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'get_arp_info' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir4/run1.py", line 29, in get_arp_info
+    mac_addy = dict_response["arp-table-information"]["arp-table-entry"]["mac-address"]["data"]
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+
+2025-09-10 20:12:32,633 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'get_arp_info' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir4/run1.py", line 29, in get_arp_info
+    mac_addy = dict_response["arp-table-information"]["arp-table-entry"]["mac-address"]["data"]
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+
+2025-09-10 20:13:21,250 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-10 20:13:21,575 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'get_arp_info' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir4/run1.py", line 30, in get_arp_info
+    mac_addy = dict_response["arp-table-information"]["arp-table-entry"]["mac-address"]["data"]
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+
+2025-09-10 20:13:21,575 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'get_arp_info' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir4/run1.py", line 30, in get_arp_info
+    mac_addy = dict_response["arp-table-information"]["arp-table-entry"]["mac-address"]["data"]
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+
+2025-09-10 20:15:37,381 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-09-10 20:15:37,460 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'http_method' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_http/tasks.py", line 34, in http_method
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_models.py", line 749, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'http://192.168.68.201:8080/rpc/get-arp-table-information'
+For more information check: https://httpstatuses.com/401
+
+2025-09-10 20:15:37,501 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'get_arp_info' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir4/run1.py", line 20, in get_arp_info
+    response = task.run(
+        task=http_method,
+    ...<5 lines>...
+        severity_level = logging.DEBUG,
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: http_method (failed)
+
+
+2025-09-10 20:15:37,502 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'http_method' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_http/tasks.py", line 34, in http_method
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_models.py", line 749, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'http://192.168.68.202:8080/rpc/get-arp-table-information'
+For more information check: https://httpstatuses.com/401
+
+2025-09-10 20:15:37,503 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'get_arp_info' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir4/run1.py", line 20, in get_arp_info
+    response = task.run(
+        task=http_method,
+    ...<5 lines>...
+        severity_level = logging.DEBUG,
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: http_method (failed)
+
+
+2025-12-04 15:11:04,507 -  nornir.core -     INFO -        run() - Running task 'get_arp_info' with args {} on 2 hosts
+2025-12-04 15:11:05,300 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'http_method' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_http/tasks.py", line 34, in http_method
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'http://192.168.68.202:8080/rpc/get-arp-table-information'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+
+2025-12-04 15:11:05,301 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'http_method' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_http/tasks.py", line 34, in http_method
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'http://192.168.68.201:8080/rpc/get-arp-table-information'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+
+2025-12-04 15:11:05,301 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'get_arp_info' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir4/run1.py", line 20, in get_arp_info
+    response = task.run(
+        task=http_method,
+    ...<5 lines>...
+        severity_level = logging.DEBUG,
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: http_method (failed)
+
+
+2025-12-04 15:11:05,302 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'get_arp_info' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/nornir4/run1.py", line 20, in get_arp_info
+    response = task.run(
+        task=http_method,
+    ...<5 lines>...
+        severity_level = logging.DEBUG,
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: http_method (failed)
+
+

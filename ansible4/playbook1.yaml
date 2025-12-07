@@ -1,0 +1,17 @@
+---
+
+## this calls the test_module.py script
+- name: "testing my new module"
+  hosts: R1
+
+
+  tasks:
+    - name: "testing this module actually works"
+      test_module:
+        mystring: "this is my little test stirng"
+        newdata: "this is some new data"
+      register: result
+
+    - name: "printing out the output of the module"
+      debug:
+        msg: "{{ result }}"

@@ -1,0 +1,16 @@
+from ncclient import manager 
+
+def connect():
+    conn = manager.connect(
+        host="r1",
+        port=830,
+        username="john",
+        password="Juniper1",
+        timeout=30,
+        device_params={"name":"junos"},
+        hostkey_verify=False,
+    )
+    response = conn.get_config("candidate") #Gets configurastion from canddate configuration , change candidate to RUNNING 
+    print(response)
+
+connect()

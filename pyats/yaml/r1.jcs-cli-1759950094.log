@@ -1,0 +1,85 @@
+
+2025-10-08 20:01:34,600: %UNICON-INFO: +++ r1.jcs logfile r1.jcs-cli-1759950094.log +++
+
+2025-10-08 20:01:34,600: %UNICON-INFO: +++ Unicon plugin junos (unicon.plugins.junos) +++
+(john@192.168.68.201) Password:
+
+2025-10-08 20:01:34,789: %UNICON-INFO: +++ connection to spawn: ssh -l john 192.168.68.201, id: 136803593551952 +++
+
+2025-10-08 20:01:34,790: %UNICON-INFO: connection to r1.jcs
+
+Last login: Wed Oct  8 19:00:38 2025 from 192.168.68.101
+--- JUNOS 24.4R1.9 Kernel 64-bit XEN JNPR-15.0-20241104.1ed86e6_buil
+john@r1.jcs> 
+
+2025-10-08 20:01:34,934: %UNICON-INFO: Storing credentials from default as current_credentials
+
+2025-10-08 20:01:34,935: %UNICON-INFO: +++ initializing handle +++
+
+2025-10-08 20:01:35,067: %UNICON-INFO: +++ r1.jcs with via 'cli': executing command 'set cli screen-length 0' +++
+set cli screen-length 0 
+Screen length set to 0
+
+john@r1.jcs> 
+
+2025-10-08 20:01:35,372: %UNICON-INFO: +++ r1.jcs with via 'cli': executing command 'set cli screen-width 0' +++
+set cli screen-width 0 
+Screen width set to 0
+
+john@r1.jcs> 
+
+2025-10-08 20:01:36,059: %UNICON-INFO: +++ r1.jcs with via 'cli': executing command 'show interfaces terse' +++
+show interfaces terse 
+Interface               Admin Link Proto    Local                 Remote
+ge-0/0/0                up    up
+ge-0/0/0.0              up    up   inet     10.0.0.1/30     
+gr-0/0/0                up    up
+ip-0/0/0                up    up
+lsq-0/0/0               up    up
+lt-0/0/0                up    up
+mt-0/0/0                up    up
+sp-0/0/0                up    up
+sp-0/0/0.0              up    up   inet    
+                                   inet6   
+sp-0/0/0.16383          up    up   inet    
+ge-0/0/1                up    up
+ge-0/0/2                up    up
+ge-0/0/3                up    up
+ge-0/0/4                up    up
+ge-0/0/5                up    up
+ge-0/0/6                up    up
+ge-0/0/7                up    up
+ge-0/0/8                up    up
+ge-0/0/9                up    up
+ge-0/0/10               up    up
+ge-0/0/11               up    up
+ge-0/0/12               up    up
+ge-0/0/13               up    up
+ge-0/0/14               up    up
+dsc                     up    up
+fti0                    up    up
+fxp0                    up    up
+fxp0.0                  up    up   inet     192.168.68.201/22
+gre                     up    up
+ipip                    up    up
+irb                     up    up
+lo0                     up    up
+lo0.16384               up    up   inet     127.0.0.1           --> 0/0
+lo0.16385               up    up   inet     10.0.0.1            --> 0/0
+                                            10.0.0.16           --> 0/0
+                                            128.0.0.1           --> 0/0
+                                            128.0.0.4           --> 0/0
+                                            128.0.1.16          --> 0/0
+lo0.32768               up    up  
+lsi                     up    up
+mtun                    up    up
+pimd                    up    up
+pime                    up    up
+pp0                     up    up
+ppd0                    up    up
+ppe0                    up    up
+st0                     up    up
+tap                     up    up
+vlan                    up    down
+
+john@r1.jcs> 

@@ -1,0 +1,6 @@
+---
+
+BGP:
+  ASN: 5
+  group: "mybgpgroup"
+  type: "internal"

@@ -1,0 +1,7 @@
+--- config1/config_junos_r1.jcs_ops.txt
++++ config2/config_junos_r1.jcs_ops.txt
++## Last commit: 2025-10-08 18:43:38 UTC by john:
+-## Last commit: 2025-09-08 06:44:35 UTC by john:
+ protocols {:
++ bgp {:
++  local-as 65656;:

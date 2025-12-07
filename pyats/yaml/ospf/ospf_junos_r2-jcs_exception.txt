@@ -1,0 +1,7 @@
+Issue while building the feature
+
+Traceback (most recent call last):
+  File "src/genie/cli/commands/learn.py", line 365, in genie.cli.commands.learn.LearnCommand._retrieve_ops
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/genie/ops/base/base.py", line 120, in learn
+    raise NotImplementedError
+NotImplementedError

@@ -1,0 +1,14 @@
+---
+
+- name: "configure ntp"
+  hosts: juniper
+
+  tasks:
+    - name: "build template"
+      junipernetworks.junos.junos_config:
+        src: "ntp.j2"
+      register: result
+
+    - name: "print the result"
+      debug:
+        msg: " {{ result }}"

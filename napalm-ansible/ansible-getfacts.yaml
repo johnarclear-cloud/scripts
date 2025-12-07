@@ -1,0 +1,50 @@
+---
+- name: "testing setup module"
+  hosts: localhost
+
+  tasks:
+    - name: "collecting local info"
+      ansible.builtin.setup:
+        gather_subset:
+          - "min"
+      register: localfacts
+
+    - name: "saving the date as a fact"
+      set_fact:
+        mydate: "{{ localfacts.ansible_facts.ansible_date_time.date }}"
+
+    - name: "creating dir"
+      ansible.builtin.file:
+        path: "saved-configurations/{{ mydate }}"
+        state: directory 
+      run_once: true
+
+- name: "play 2"
+  hosts: all
+
+  tasks:
+    - name: "get facts from device"
+      napalm_get_facts:
+        hostname: "{{ ansible_host }}"
+        username: "{{ ansible_user }}"
+        dev_os: "{{ napalm_platform }}"
+        password: "{{ ansible_password }}"
+        filter: ["config"]
+      register: result
+
+
+ #    - name: "print data"
+ #     debug:
+ #       msg: "{{ result.ansible_facts.napalm_config.candidate }}"
+
+
+    - name: "create running config directory"
+      ansible.builtin.file:
+        path: "saved-configurations/{{ hostvars.localhost.mydate }}/candidate"
+        state: directory
+      run_once: true
+
+    - name: "copy configuration"
+      ansible.builtin.copy:
+        content: "{{ result.ansible_facts.napalm_config.candidate }}"
+        dest: "saved-configurations//{{ hostvars.localhost.mydate }}/candidate/{{ inventory_hostname }}-candidate.txt"

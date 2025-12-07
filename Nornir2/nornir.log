@@ -1,0 +1,2520 @@
+2025-08-28 14:58:41,884 -  nornir.core -     INFO -        run() - Running task 'print_me' with args {} on 2 hosts
+2025-08-28 15:04:58,694 -  nornir.core -     INFO -        run() - Running task 'print_me' with args {} on 2 hosts
+2025-08-28 15:04:58,696 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'print_me' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir1/example2.py", line 6, in print_me
+    print(f"{task.host.data} is in bgp ASN {task.host.data['bgp']}")
+                                            ~~~~~~~~~~~~~~^^^^^^^
+KeyError: 'bgp'
+
+2025-08-28 15:04:58,696 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'print_me' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir1/example2.py", line 6, in print_me
+    print(f"{task.host.data} is in bgp ASN {task.host.data['bgp']}")
+                                            ~~~~~~~~~~~~~~^^^^^^^
+KeyError: 'bgp'
+
+2025-08-28 15:05:38,652 -  nornir.core -     INFO -        run() - Running task 'print_me' with args {} on 2 hosts
+2025-08-28 15:06:26,760 -  nornir.core -     INFO -        run() - Running task 'print_me' with args {} on 2 hosts
+2025-08-28 15:06:31,246 -  nornir.core -     INFO -        run() - Running task 'print_me' with args {} on 2 hosts
+2025-08-28 15:07:08,037 -  nornir.core -     INFO -        run() - Running task 'print_me' with args {} on 2 hosts
+2025-08-28 15:21:00,024 -  nornir.core -     INFO -        run() - Running task 'get_some_data' with args {} on 2 hosts
+2025-08-28 15:21:00,103 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+    ~~~~~~~~~~^
+        username,
+        ^^^^^^^^^
+    ...<9 lines>...
+        passphrase,
+        ^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/paramiko/client.py", line 819, in _auth
+    raise SSHException("No authentication methods available")
+paramiko.ssh_exception.SSHException: No authentication methods available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+    ~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 1199, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: 
+A paramiko SSHException occurred during connection creation:
+
+No authentication methods available
+
+
+
+2025-08-28 15:21:00,103 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+    ~~~~~~~~~~^
+        username,
+        ^^^^^^^^^
+    ...<9 lines>...
+        passphrase,
+        ^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/paramiko/client.py", line 819, in _auth
+    raise SSHException("No authentication methods available")
+paramiko.ssh_exception.SSHException: No authentication methods available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+    ~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 1199, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: 
+A paramiko SSHException occurred during connection creation:
+
+No authentication methods available
+
+
+
+2025-08-28 15:21:00,104 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'get_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook1.py", line 7, in get_some_data
+    task.run(task=netmiko_send_command, command_string="show configuration")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2025-08-28 15:21:00,105 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'get_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook1.py", line 7, in get_some_data
+    task.run(task=netmiko_send_command, command_string="show configuration")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2025-08-28 15:29:32,813 -  nornir.core -     INFO -        run() - Running task 'get_some_data' with args {} on 2 hosts
+2025-08-28 15:29:32,860 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+    ~~~~~~~~~~^
+        username,
+        ^^^^^^^^^
+    ...<9 lines>...
+        passphrase,
+        ^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/paramiko/client.py", line 819, in _auth
+    raise SSHException("No authentication methods available")
+paramiko.ssh_exception.SSHException: No authentication methods available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+    ~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 1199, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: 
+A paramiko SSHException occurred during connection creation:
+
+No authentication methods available
+
+
+
+2025-08-28 15:29:32,861 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'get_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook1.py", line 7, in get_some_data
+    task.run(task=netmiko_send_command, command_string="show configuration")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2025-08-28 15:29:32,861 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+    ~~~~~~~~~~^
+        username,
+        ^^^^^^^^^
+    ...<9 lines>...
+        passphrase,
+        ^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/paramiko/client.py", line 819, in _auth
+    raise SSHException("No authentication methods available")
+paramiko.ssh_exception.SSHException: No authentication methods available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+    ~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 1199, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: 
+A paramiko SSHException occurred during connection creation:
+
+No authentication methods available
+
+
+
+2025-08-28 15:29:32,862 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'get_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook1.py", line 7, in get_some_data
+    task.run(task=netmiko_send_command, command_string="show configuration")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2025-08-28 15:29:40,107 -  nornir.core -     INFO -        run() - Running task 'get_some_data' with args {} on 2 hosts
+2025-08-28 15:29:40,148 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+    ~~~~~~~~~~^
+        username,
+        ^^^^^^^^^
+    ...<9 lines>...
+        passphrase,
+        ^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/paramiko/client.py", line 819, in _auth
+    raise SSHException("No authentication methods available")
+paramiko.ssh_exception.SSHException: No authentication methods available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+    ~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 1199, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: 
+A paramiko SSHException occurred during connection creation:
+
+No authentication methods available
+
+
+
+2025-08-28 15:29:40,150 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'get_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook1.py", line 7, in get_some_data
+    task.run(task=netmiko_send_command, command_string="show configuration")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2025-08-28 15:29:40,256 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+    ~~~~~~~~~~^
+        username,
+        ^^^^^^^^^
+    ...<9 lines>...
+        passphrase,
+        ^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/paramiko/client.py", line 819, in _auth
+    raise SSHException("No authentication methods available")
+paramiko.ssh_exception.SSHException: No authentication methods available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+    ~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 1199, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: 
+A paramiko SSHException occurred during connection creation:
+
+No authentication methods available
+
+
+
+2025-08-28 15:29:40,257 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'get_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook1.py", line 7, in get_some_data
+    task.run(task=netmiko_send_command, command_string="show configuration")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2025-08-28 15:30:00,075 -  nornir.core -     INFO -        run() - Running task 'get_some_data' with args {} on 2 hosts
+2025-08-28 15:30:00,130 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+    ~~~~~~~~~~^
+        username,
+        ^^^^^^^^^
+    ...<9 lines>...
+        passphrase,
+        ^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/paramiko/client.py", line 819, in _auth
+    raise SSHException("No authentication methods available")
+paramiko.ssh_exception.SSHException: No authentication methods available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+    ~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 1199, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: 
+A paramiko SSHException occurred during connection creation:
+
+No authentication methods available
+
+
+
+2025-08-28 15:30:00,131 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+    ~~~~~~~~~~^
+        username,
+        ^^^^^^^^^
+    ...<9 lines>...
+        passphrase,
+        ^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/paramiko/client.py", line 819, in _auth
+    raise SSHException("No authentication methods available")
+paramiko.ssh_exception.SSHException: No authentication methods available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+    ~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 1199, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: 
+A paramiko SSHException occurred during connection creation:
+
+No authentication methods available
+
+
+
+2025-08-28 15:30:00,131 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'get_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook1.py", line 7, in get_some_data
+    task.run(task=netmiko_send_command, command_string="show configuration")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2025-08-28 15:30:00,132 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'get_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook1.py", line 7, in get_some_data
+    task.run(task=netmiko_send_command, command_string="show configuration")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2025-08-28 15:30:54,730 -  nornir.core -     INFO -        run() - Running task 'get_some_data' with args {} on 2 hosts
+2025-08-28 15:30:54,798 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+    ~~~~~~~~~~^
+        username,
+        ^^^^^^^^^
+    ...<9 lines>...
+        passphrase,
+        ^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/paramiko/client.py", line 819, in _auth
+    raise SSHException("No authentication methods available")
+paramiko.ssh_exception.SSHException: No authentication methods available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+    ~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 1199, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: 
+A paramiko SSHException occurred during connection creation:
+
+No authentication methods available
+
+
+
+2025-08-28 15:30:54,799 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'get_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook1.py", line 7, in get_some_data
+    task.run(task=netmiko_send_command, command_string="show configuration")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2025-08-28 15:30:54,808 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/paramiko/client.py", line 485, in connect
+    self._auth(
+    ~~~~~~~~~~^
+        username,
+        ^^^^^^^^^
+    ...<9 lines>...
+        passphrase,
+        ^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/paramiko/client.py", line 819, in _auth
+    raise SSHException("No authentication methods available")
+paramiko.ssh_exception.SSHException: No authentication methods available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+    ~~~~~~~~~~~~~~~~~~~~^
+        connection=connection,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        extras=conn.extras,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+    ~~~~~~~~~~~~~^
+        hostname=hostname,
+        ^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        configuration=configuration,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+    ~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 1199, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: 
+A paramiko SSHException occurred during connection creation:
+
+No authentication methods available
+
+
+
+2025-08-28 15:30:54,808 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'get_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook1.py", line 7, in get_some_data
+    task.run(task=netmiko_send_command, command_string="show configuration")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2025-08-28 15:32:52,160 -  nornir.core -     INFO -        run() - Running task 'get_some_data' with args {} on 2 hosts
+2025-08-28 15:36:53,941 -  nornir.core -     INFO -        run() - Running task 'get_some_data' with args {} on 2 hosts
+2025-08-28 15:43:51,699 -  nornir.core -     INFO -        run() - Running task 'push_some_config' with args {} on 2 hosts
+2025-08-28 15:44:07,205 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_config.py", line 38, in netmiko_send_config
+    result = net_connect.send_config_set(config_commands=config_commands, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 111, in wrapper_decorator
+    return_val = func(self, *args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 2335, in send_config_set
+    output += self.read_until_pattern(
+              ~~~~~~~~~~~~~~~~~~~~~~~^
+        pattern=re.escape(cmd.strip()), read_timeout=read_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 755, in read_until_pattern
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+
+Pattern not detected: 'set\\ system\\ snmp\\ community\\ nornir' in output.
+
+Things you might try to fix this:
+1. Adjust the regex pattern to better identify the terminating string. Note, in
+many situations the pattern is automatically based on the network device's prompt.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2025-08-28 15:44:07,206 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'push_some_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook2.py", line 8, in push_some_config
+    task.run(
+    ~~~~~~~~^
+        task=netmiko_send_config,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+        config_commands=["set system snmp community nornir"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_config (failed)
+
+
+2025-08-28 15:44:07,206 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_netmiko/tasks/netmiko_send_config.py", line 38, in netmiko_send_config
+    result = net_connect.send_config_set(config_commands=config_commands, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 111, in wrapper_decorator
+    return_val = func(self, *args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 2335, in send_config_set
+    output += self.read_until_pattern(
+              ~~~~~~~~~~~~~~~~~~~~~~~^
+        pattern=re.escape(cmd.strip()), read_timeout=read_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/netmiko/base_connection.py", line 755, in read_until_pattern
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+
+Pattern not detected: 'set\\ system\\ snmp\\ community\\ nornir' in output.
+
+Things you might try to fix this:
+1. Adjust the regex pattern to better identify the terminating string. Note, in
+many situations the pattern is automatically based on the network device's prompt.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2025-08-28 15:44:07,207 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'push_some_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook2.py", line 8, in push_some_config
+    task.run(
+    ~~~~~~~~^
+        task=netmiko_send_config,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+        config_commands=["set system snmp community nornir"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_config (failed)
+
+
+2025-08-28 15:44:28,364 -  nornir.core -     INFO -        run() - Running task 'push_some_config' with args {} on 2 hosts
+2025-08-28 15:46:58,649 -  nornir.core -     INFO -        run() - Running task 'push_some_config' with args {} on 2 hosts
+2025-08-28 15:47:31,320 -  nornir.core -     INFO -        run() - Running task 'push_some_config' with args {} on 2 hosts
+2025-08-28 15:47:57,004 -  nornir.core -     INFO -        run() - Running task 'push_some_config' with args {} on 2 hosts
+2025-08-28 15:48:04,632 -  nornir.core -     INFO -        run() - Running task 'push_some_config' with args {} on 2 hosts
+2025-08-28 15:49:52,616 -  nornir.core -     INFO -        run() - Running task 'push_some_config' with args {} on 2 hosts
+2025-08-28 15:50:38,945 -  nornir.core -     INFO -        run() - Running task 'push_some_config' with args {} on 2 hosts
+2025-08-28 15:53:12,040 -  nornir.core -     INFO -        run() - Running task 'push_some_config' with args {} on 2 hosts
+2025-08-28 15:54:20,781 -  nornir.core -     INFO -        run() - Running task 'push_some_config' with args {} on 2 hosts
+2025-08-28 15:54:46,365 -  nornir.core -     INFO -        run() - Running task 'push_some_config' with args {} on 2 hosts
+2025-08-28 15:54:46,368 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'push_some_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook2.py", line 10, in push_some_config
+    config_commands=[f"set snmp community {task.host['snmp']}"],
+                                           ~~~~~~~~~^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/inventory.py", line 337, in __getitem__
+    return self.data[item]
+           ~~~~~~~~~^^^^^^
+KeyError: 'snmp'
+
+2025-08-28 15:55:51,864 -  nornir.core -     INFO -        run() - Running task 'push_some_config' with args {} on 2 hosts
+2025-08-28 15:59:12,736 -  nornir.core -     INFO -        run() - Running task 'push_some_config' with args {} on 2 hosts
+2025-08-28 15:59:12,737 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+TypeError: netmiko_send_command() missing 1 required positional argument: 'command_string'
+
+2025-08-28 15:59:12,738 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+TypeError: netmiko_send_command() missing 1 required positional argument: 'command_string'
+
+2025-08-28 15:59:12,738 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'push_some_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 8, in push_some_config
+    task.run(
+    ~~~~~~~~^
+        task=netmiko_send_command,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        commands_commands=f"show configuration interfaces"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2025-08-28 15:59:12,739 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'push_some_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 8, in push_some_config
+    task.run(
+    ~~~~~~~~^
+        task=netmiko_send_command,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        commands_commands=f"show configuration interfaces"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2025-08-28 15:59:31,422 -  nornir.core -     INFO -        run() - Running task 'push_some_config' with args {} on 2 hosts
+2025-08-28 15:59:31,423 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+TypeError: netmiko_send_command() missing 1 required positional argument: 'command_string'
+
+2025-08-28 15:59:31,424 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'push_some_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 8, in push_some_config
+    task.run(
+    ~~~~~~~~^
+        task=netmiko_send_command,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        commands_string=f"show configuration interfaces"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2025-08-28 15:59:31,424 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+TypeError: netmiko_send_command() missing 1 required positional argument: 'command_string'
+
+2025-08-28 15:59:31,425 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'push_some_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 8, in push_some_config
+    task.run(
+    ~~~~~~~~^
+        task=netmiko_send_command,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        commands_string=f"show configuration interfaces"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2025-08-28 15:59:53,889 -  nornir.core -     INFO -        run() - Running task 'push_some_config' with args {} on 2 hosts
+2025-08-28 15:59:53,890 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+TypeError: netmiko_send_command() missing 1 required positional argument: 'command_string'
+
+2025-08-28 15:59:53,891 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+TypeError: netmiko_send_command() missing 1 required positional argument: 'command_string'
+
+2025-08-28 15:59:53,891 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'push_some_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 8, in push_some_config
+    task.run(
+    ~~~~~~~~^
+        task=netmiko_send_command,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        commands_string=f"show configuration interfaces"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2025-08-28 15:59:53,892 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'push_some_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 8, in push_some_config
+    task.run(
+    ~~~~~~~~^
+        task=netmiko_send_command,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        commands_string=f"show configuration interfaces"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2025-08-28 16:00:05,288 -  nornir.core -     INFO -        run() - Running task 'push_some_config' with args {} on 2 hosts
+2025-08-28 16:28:19,900 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:28:20,462 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 14, in new_random_test
+    dict_configuration = json.loads(configuration.results)
+                                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 253, in __getattr__
+    return getattr(self[0], name)
+AttributeError: 'Result' object has no attribute 'results'. Did you mean: 'result'?
+
+2025-08-28 16:28:20,503 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 14, in new_random_test
+    dict_configuration = json.loads(configuration.results)
+                                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 253, in __getattr__
+    return getattr(self[0], name)
+AttributeError: 'Result' object has no attribute 'results'. Did you mean: 'result'?
+
+2025-08-28 16:29:04,172 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:29:04,710 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 14, in new_random_test
+    dict_configuration = json.loads(configuration.results)
+                                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 253, in __getattr__
+    return getattr(self[0], name)
+AttributeError: 'Result' object has no attribute 'results'. Did you mean: 'result'?
+
+2025-08-28 16:29:04,731 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 14, in new_random_test
+    dict_configuration = json.loads(configuration.results)
+                                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 253, in __getattr__
+    return getattr(self[0], name)
+AttributeError: 'Result' object has no attribute 'results'. Did you mean: 'result'?
+
+2025-08-28 16:29:24,007 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:29:24,510 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 14, in new_random_test
+    dict_configuration = json.loads(configuration.results)
+                                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 253, in __getattr__
+    return getattr(self[0], name)
+AttributeError: 'Result' object has no attribute 'results'. Did you mean: 'result'?
+
+2025-08-28 16:29:24,530 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 14, in new_random_test
+    dict_configuration = json.loads(configuration.results)
+                                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 253, in __getattr__
+    return getattr(self[0], name)
+AttributeError: 'Result' object has no attribute 'results'. Did you mean: 'result'?
+
+2025-08-28 16:29:47,011 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:29:47,521 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 14, in new_random_test
+    dict_configuration = json.loads(configuration.results)
+                                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 253, in __getattr__
+    return getattr(self[0], name)
+AttributeError: 'Result' object has no attribute 'results'. Did you mean: 'result'?
+
+2025-08-28 16:29:47,522 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 14, in new_random_test
+    dict_configuration = json.loads(configuration.results)
+                                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 253, in __getattr__
+    return getattr(self[0], name)
+AttributeError: 'Result' object has no attribute 'results'. Did you mean: 'result'?
+
+2025-08-28 16:30:17,207 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:30:17,706 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 14, in new_random_test
+    dict_configuration = json.loads(configuration.results)
+                                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 253, in __getattr__
+    return getattr(self[0], name)
+AttributeError: 'Result' object has no attribute 'results'. Did you mean: 'result'?
+
+2025-08-28 16:30:17,712 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 14, in new_random_test
+    dict_configuration = json.loads(configuration.results)
+                                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 253, in __getattr__
+    return getattr(self[0], name)
+AttributeError: 'Result' object has no attribute 'results'. Did you mean: 'result'?
+
+2025-08-28 16:30:28,192 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:30:28,705 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 14, in new_random_test
+    dict_configuration = json.loads(configuration.results)
+                                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 253, in __getattr__
+    return getattr(self[0], name)
+AttributeError: 'Result' object has no attribute 'results'. Did you mean: 'result'?
+
+2025-08-28 16:30:28,712 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 14, in new_random_test
+    dict_configuration = json.loads(configuration.results)
+                                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 253, in __getattr__
+    return getattr(self[0], name)
+AttributeError: 'Result' object has no attribute 'results'. Did you mean: 'result'?
+
+2025-08-28 16:30:47,999 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:31:18,378 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:31:30,564 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:31:39,830 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:32:41,171 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:32:58,869 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:34:38,113 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:35:02,281 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:35:06,089 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:35:24,688 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:35:28,187 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:35:59,767 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:37:19,536 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:37:41,577 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:37:42,150 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 21, in new_random_test
+    for names in name:
+                 ^^^^
+NameError: name 'name' is not defined
+
+2025-08-28 16:37:42,151 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 21, in new_random_test
+    for names in name:
+                 ^^^^
+NameError: name 'name' is not defined
+
+2025-08-28 16:38:56,277 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:38:56,835 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 21, in new_random_test
+    for names in name:
+                 ^^^^
+NameError: name 'name' is not defined
+
+2025-08-28 16:38:56,836 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 21, in new_random_test
+    for names in name:
+                 ^^^^
+NameError: name 'name' is not defined
+
+2025-08-28 16:39:04,461 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:39:04,963 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 20, in new_random_test
+    for names in name:
+                 ^^^^
+NameError: name 'name' is not defined
+
+2025-08-28 16:39:05,010 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 20, in new_random_test
+    for names in name:
+                 ^^^^
+NameError: name 'name' is not defined
+
+2025-08-28 16:40:25,673 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:40:26,199 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 21, in new_random_test
+    for names in name:
+                 ^^^^
+NameError: name 'name' is not defined. Did you mean: 'names'?
+
+2025-08-28 16:40:26,201 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook3.py", line 21, in new_random_test
+    for names in name:
+                 ^^^^
+NameError: name 'name' is not defined. Did you mean: 'names'?
+
+2025-08-28 16:40:53,839 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:45:40,187 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:47:54,566 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:47:55,096 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook4.py", line 25, in new_random_test
+    return Result(host=task.host, result=result_list)
+           ^^^^^^
+NameError: name 'Result' is not defined
+
+2025-08-28 16:47:55,106 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook4.py", line 25, in new_random_test
+    return Result(host=task.host, result=result_list)
+           ^^^^^^
+NameError: name 'Result' is not defined
+
+2025-08-28 16:48:24,172 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:48:24,693 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook4.py", line 25, in new_random_test
+    return result(host=task.host, result=result_list)
+           ^^^^^^
+NameError: name 'result' is not defined
+
+2025-08-28 16:48:24,697 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'new_random_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook4.py", line 25, in new_random_test
+    return result(host=task.host, result=result_list)
+           ^^^^^^
+NameError: name 'result' is not defined
+
+2025-08-28 16:52:16,671 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:53:37,602 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 16:53:40,877 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-08-28 17:23:34,975 -  nornir.core -     INFO -        run() - Running task 'pull_some_data' with args {} on 2 hosts
+2025-08-28 17:23:35,546 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 43, in napalm_get
+    method = getattr(device, getter)
+AttributeError: 'JunOSDriver' object has no attribute 'get_envionment'. Did you mean: 'get_environment'?
+
+2025-08-28 17:23:35,546 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'pull_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook5.py", line 11, in pull_some_data
+    task.run(task=napalm_get, getters=["get_envionment"])
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_get (failed)
+
+
+2025-08-28 17:23:35,583 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 43, in napalm_get
+    method = getattr(device, getter)
+AttributeError: 'JunOSDriver' object has no attribute 'get_envionment'. Did you mean: 'get_environment'?
+
+2025-08-28 17:23:35,584 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'pull_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook5.py", line 11, in pull_some_data
+    task.run(task=napalm_get, getters=["get_envionment"])
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_get (failed)
+
+
+2025-08-28 17:24:15,126 -  nornir.core -     INFO -        run() - Running task 'pull_some_data' with args {} on 2 hosts
+2025-08-28 17:24:16,084 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 835, in execute
+    rpc_rsp_e = self._rpc_reply(
+        rpc_cmd_e,
+        ignore_warning=ignore_warning,
+        filter_xml=kvargs.get("filter_xml"),
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 1487, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/manager.py", line 257, in execute
+    return cls(self._session,
+           ~~~~~~~~~~~~~~~~~~
+    ...<3 lines>...
+               raise_mode=self._raise_mode,
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               huge_tree=self._huge_tree).request(*args, **kwds)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+           ~~~~~~~~~~~~~^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/rpc.py", line 375, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: 
+command is not valid on the vsrx
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 44, in napalm_get
+    result[g] = method(**options)
+                ~~~~~~^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 523, in get_environment
+    temperature_thresholds.get()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 181, in wrapper
+    result = function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/factory/optable.py", line 84, in get
+    self.xml = getattr(self.RPC, self.GET_RPC)(**rpc_args)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/rpcmeta.py", line 363, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 855, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: command is not valid on the vsrx)
+
+2025-08-28 17:24:16,088 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'pull_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook5.py", line 11, in pull_some_data
+    task.run(task=napalm_get, getters=["get_environment"])
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_get (failed)
+
+
+2025-08-28 17:24:16,089 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 835, in execute
+    rpc_rsp_e = self._rpc_reply(
+        rpc_cmd_e,
+        ignore_warning=ignore_warning,
+        filter_xml=kvargs.get("filter_xml"),
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 1487, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/manager.py", line 257, in execute
+    return cls(self._session,
+           ~~~~~~~~~~~~~~~~~~
+    ...<3 lines>...
+               raise_mode=self._raise_mode,
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               huge_tree=self._huge_tree).request(*args, **kwds)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+           ~~~~~~~~~~~~~^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/rpc.py", line 375, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: 
+command is not valid on the vsrx
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 44, in napalm_get
+    result[g] = method(**options)
+                ~~~~~~^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 523, in get_environment
+    temperature_thresholds.get()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 181, in wrapper
+    result = function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/factory/optable.py", line 84, in get
+    self.xml = getattr(self.RPC, self.GET_RPC)(**rpc_args)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/rpcmeta.py", line 363, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 855, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: command is not valid on the vsrx)
+
+2025-08-28 17:24:16,089 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'pull_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook5.py", line 11, in pull_some_data
+    task.run(task=napalm_get, getters=["get_environment"])
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_get (failed)
+
+
+2025-08-28 17:24:20,426 -  nornir.core -     INFO -        run() - Running task 'pull_some_data' with args {} on 2 hosts
+2025-08-28 17:24:20,837 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 43, in napalm_get
+    method = getattr(device, getter)
+AttributeError: 'JunOSDriver' object has no attribute 'get_enviroment'. Did you mean: 'get_environment'?
+
+2025-08-28 17:24:20,837 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'pull_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook5.py", line 11, in pull_some_data
+    task.run(task=napalm_get, getters=["get_enviroment"])
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_get (failed)
+
+
+2025-08-28 17:24:20,945 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 43, in napalm_get
+    method = getattr(device, getter)
+AttributeError: 'JunOSDriver' object has no attribute 'get_enviroment'. Did you mean: 'get_environment'?
+
+2025-08-28 17:24:20,947 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'pull_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook5.py", line 11, in pull_some_data
+    task.run(task=napalm_get, getters=["get_enviroment"])
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_get (failed)
+
+
+2025-08-28 17:24:43,843 -  nornir.core -     INFO -        run() - Running task 'pull_some_data' with args {} on 2 hosts
+2025-08-28 17:24:44,745 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 835, in execute
+    rpc_rsp_e = self._rpc_reply(
+        rpc_cmd_e,
+        ignore_warning=ignore_warning,
+        filter_xml=kvargs.get("filter_xml"),
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 1487, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/manager.py", line 257, in execute
+    return cls(self._session,
+           ~~~~~~~~~~~~~~~~~~
+    ...<3 lines>...
+               raise_mode=self._raise_mode,
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               huge_tree=self._huge_tree).request(*args, **kwds)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+           ~~~~~~~~~~~~~^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/rpc.py", line 375, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: 
+command is not valid on the vsrx
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 44, in napalm_get
+    result[g] = method(**options)
+                ~~~~~~^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 523, in get_environment
+    temperature_thresholds.get()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 181, in wrapper
+    result = function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/factory/optable.py", line 84, in get
+    self.xml = getattr(self.RPC, self.GET_RPC)(**rpc_args)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/rpcmeta.py", line 363, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 855, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: command is not valid on the vsrx)
+
+2025-08-28 17:24:44,746 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'pull_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook5.py", line 11, in pull_some_data
+    task.run(task=napalm_get, getters=["get_environment"])
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_get (failed)
+
+
+2025-08-28 17:24:44,753 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 835, in execute
+    rpc_rsp_e = self._rpc_reply(
+        rpc_cmd_e,
+        ignore_warning=ignore_warning,
+        filter_xml=kvargs.get("filter_xml"),
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 1487, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/manager.py", line 257, in execute
+    return cls(self._session,
+           ~~~~~~~~~~~~~~~~~~
+    ...<3 lines>...
+               raise_mode=self._raise_mode,
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               huge_tree=self._huge_tree).request(*args, **kwds)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+           ~~~~~~~~~~~~~^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/rpc.py", line 375, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: 
+command is not valid on the vsrx
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 44, in napalm_get
+    result[g] = method(**options)
+                ~~~~~~^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 523, in get_environment
+    temperature_thresholds.get()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 181, in wrapper
+    result = function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/factory/optable.py", line 84, in get
+    self.xml = getattr(self.RPC, self.GET_RPC)(**rpc_args)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/rpcmeta.py", line 363, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 855, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: command is not valid on the vsrx)
+
+2025-08-28 17:24:44,754 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'pull_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook5.py", line 11, in pull_some_data
+    task.run(task=napalm_get, getters=["get_environment"])
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_get (failed)
+
+
+2025-08-28 17:25:37,695 -  nornir.core -     INFO -        run() - Running task 'pull_some_data' with args {} on 2 hosts
+2025-08-28 17:25:52,563 -  nornir.core -     INFO -        run() - Running task 'pull_some_data' with args {} on 2 hosts
+2025-08-28 17:29:34,258 -  nornir.core -     INFO -        run() - Running task 'configure_some_data' with args {} on 2 hosts
+2025-08-28 17:29:34,844 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 835, in execute
+    rpc_rsp_e = self._rpc_reply(
+        rpc_cmd_e,
+        ignore_warning=ignore_warning,
+        filter_xml=kvargs.get("filter_xml"),
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 1487, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/manager.py", line 257, in execute
+    return cls(self._session,
+           ~~~~~~~~~~~~~~~~~~
+    ...<3 lines>...
+               raise_mode=self._raise_mode,
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               huge_tree=self._huge_tree).request(*args, **kwds)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+           ~~~~~~~~~~~~~^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/rpc.py", line 375, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: 
+configuration database modified
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/utils/config.py", line 613, in lock
+    self.rpc.lock_configuration()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/rpcmeta.py", line 363, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 855, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: configuration database modified)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 166, in _lock
+    self.device.cu.lock()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/utils/config.py", line 616, in lock
+    raise LockError(rsp=err.rsp)
+jnpr.junos.exception.LockError: LockError(severity: error, bad_element: None, message: configuration database modified)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 36, in napalm_configure
+    device.load_merge_candidate(filename=filename, config=configuration)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 287, in load_merge_candidate
+    self._load_candidate(filename, config, False)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 251, in _load_candidate
+    self._lock()
+    ~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 169, in _lock
+    raise LockError(str(jle))
+napalm.base.exceptions.LockError: LockError(severity: error, bad_element: None, message: configuration database modified)
+
+2025-08-28 17:29:34,845 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'configure_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook5.py", line 11, in configure_some_data
+    task.run(task=napalm_configure, configuration="set interface lo0 unit 0 address 127.0.0.1")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2025-08-28 17:29:34,918 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 835, in execute
+    rpc_rsp_e = self._rpc_reply(
+        rpc_cmd_e,
+        ignore_warning=ignore_warning,
+        filter_xml=kvargs.get("filter_xml"),
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 1487, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/manager.py", line 257, in execute
+    return cls(self._session,
+           ~~~~~~~~~~~~~~~~~~
+    ...<3 lines>...
+               raise_mode=self._raise_mode,
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               huge_tree=self._huge_tree).request(*args, **kwds)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+           ~~~~~~~~~~~~~^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/rpc.py", line 375, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: 
+configuration database modified
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/utils/config.py", line 613, in lock
+    self.rpc.lock_configuration()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/rpcmeta.py", line 363, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 855, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: configuration database modified)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 166, in _lock
+    self.device.cu.lock()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/utils/config.py", line 616, in lock
+    raise LockError(rsp=err.rsp)
+jnpr.junos.exception.LockError: LockError(severity: error, bad_element: None, message: configuration database modified)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 36, in napalm_configure
+    device.load_merge_candidate(filename=filename, config=configuration)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 287, in load_merge_candidate
+    self._load_candidate(filename, config, False)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 251, in _load_candidate
+    self._lock()
+    ~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 169, in _lock
+    raise LockError(str(jle))
+napalm.base.exceptions.LockError: LockError(severity: error, bad_element: None, message: configuration database modified)
+
+2025-08-28 17:29:34,918 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'configure_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook5.py", line 11, in configure_some_data
+    task.run(task=napalm_configure, configuration="set interface lo0 unit 0 address 127.0.0.1")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2025-08-28 17:30:24,720 -  nornir.core -     INFO -        run() - Running task 'configure_some_data' with args {} on 2 hosts
+2025-08-28 17:30:25,268 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 835, in execute
+    rpc_rsp_e = self._rpc_reply(
+        rpc_cmd_e,
+        ignore_warning=ignore_warning,
+        filter_xml=kvargs.get("filter_xml"),
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 1487, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/manager.py", line 257, in execute
+    return cls(self._session,
+           ~~~~~~~~~~~~~~~~~~
+    ...<3 lines>...
+               raise_mode=self._raise_mode,
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               huge_tree=self._huge_tree).request(*args, **kwds)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+           ~~~~~~~~~~~~~^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/rpc.py", line 375, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: 
+configuration database modified
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/utils/config.py", line 613, in lock
+    self.rpc.lock_configuration()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/rpcmeta.py", line 363, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 855, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: configuration database modified)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 166, in _lock
+    self.device.cu.lock()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/utils/config.py", line 616, in lock
+    raise LockError(rsp=err.rsp)
+jnpr.junos.exception.LockError: LockError(severity: error, bad_element: None, message: configuration database modified)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 36, in napalm_configure
+    device.load_merge_candidate(filename=filename, config=configuration)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 287, in load_merge_candidate
+    self._load_candidate(filename, config, False)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 251, in _load_candidate
+    self._lock()
+    ~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 169, in _lock
+    raise LockError(str(jle))
+napalm.base.exceptions.LockError: LockError(severity: error, bad_element: None, message: configuration database modified)
+
+2025-08-28 17:30:25,268 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'configure_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook5.py", line 11, in configure_some_data
+    task.run(task=napalm_configure, configuration="set interface lo0 unit 0 address 127.0.0.1")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2025-08-28 17:30:25,301 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 835, in execute
+    rpc_rsp_e = self._rpc_reply(
+        rpc_cmd_e,
+        ignore_warning=ignore_warning,
+        filter_xml=kvargs.get("filter_xml"),
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 1487, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/manager.py", line 257, in execute
+    return cls(self._session,
+           ~~~~~~~~~~~~~~~~~~
+    ...<3 lines>...
+               raise_mode=self._raise_mode,
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               huge_tree=self._huge_tree).request(*args, **kwds)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+           ~~~~~~~~~~~~~^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/rpc.py", line 375, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: 
+configuration database modified
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/utils/config.py", line 613, in lock
+    self.rpc.lock_configuration()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/rpcmeta.py", line 363, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 855, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: configuration database modified)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 166, in _lock
+    self.device.cu.lock()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/utils/config.py", line 616, in lock
+    raise LockError(rsp=err.rsp)
+jnpr.junos.exception.LockError: LockError(severity: error, bad_element: None, message: configuration database modified)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 36, in napalm_configure
+    device.load_merge_candidate(filename=filename, config=configuration)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 287, in load_merge_candidate
+    self._load_candidate(filename, config, False)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 251, in _load_candidate
+    self._lock()
+    ~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 169, in _lock
+    raise LockError(str(jle))
+napalm.base.exceptions.LockError: LockError(severity: error, bad_element: None, message: configuration database modified)
+
+2025-08-28 17:30:25,301 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'configure_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook5.py", line 11, in configure_some_data
+    task.run(task=napalm_configure, configuration="set interface lo0 unit 0 address 127.0.0.1")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2025-08-28 17:31:08,744 -  nornir.core -     INFO -        run() - Running task 'configure_some_data' with args {} on 2 hosts
+2025-08-28 17:31:09,345 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 835, in execute
+    rpc_rsp_e = self._rpc_reply(
+        rpc_cmd_e,
+        ignore_warning=ignore_warning,
+        filter_xml=kvargs.get("filter_xml"),
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 1487, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/manager.py", line 257, in execute
+    return cls(self._session,
+           ~~~~~~~~~~~~~~~~~~
+    ...<3 lines>...
+               raise_mode=self._raise_mode,
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               huge_tree=self._huge_tree).request(*args, **kwds)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+           ~~~~~~~~~~~~~^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/rpc.py", line 375, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: 
+configuration database modified
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/utils/config.py", line 613, in lock
+    self.rpc.lock_configuration()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/rpcmeta.py", line 363, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 855, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: configuration database modified)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 166, in _lock
+    self.device.cu.lock()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/utils/config.py", line 616, in lock
+    raise LockError(rsp=err.rsp)
+jnpr.junos.exception.LockError: LockError(severity: error, bad_element: None, message: configuration database modified)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 36, in napalm_configure
+    device.load_merge_candidate(filename=filename, config=configuration)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 287, in load_merge_candidate
+    self._load_candidate(filename, config, False)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 251, in _load_candidate
+    self._lock()
+    ~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 169, in _lock
+    raise LockError(str(jle))
+napalm.base.exceptions.LockError: LockError(severity: error, bad_element: None, message: configuration database modified)
+
+2025-08-28 17:31:09,346 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'configure_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook5.py", line 11, in configure_some_data
+    task.run(task=napalm_configure, configuration="set snmp community napalmtest")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2025-08-28 17:31:09,460 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 835, in execute
+    rpc_rsp_e = self._rpc_reply(
+        rpc_cmd_e,
+        ignore_warning=ignore_warning,
+        filter_xml=kvargs.get("filter_xml"),
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 1487, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/manager.py", line 257, in execute
+    return cls(self._session,
+           ~~~~~~~~~~~~~~~~~~
+    ...<3 lines>...
+               raise_mode=self._raise_mode,
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               huge_tree=self._huge_tree).request(*args, **kwds)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+           ~~~~~~~~~~~~~^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/rpc.py", line 375, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: 
+configuration database modified
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/utils/config.py", line 613, in lock
+    self.rpc.lock_configuration()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/rpcmeta.py", line 363, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 855, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: configuration database modified)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 166, in _lock
+    self.device.cu.lock()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/utils/config.py", line 616, in lock
+    raise LockError(rsp=err.rsp)
+jnpr.junos.exception.LockError: LockError(severity: error, bad_element: None, message: configuration database modified)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 36, in napalm_configure
+    device.load_merge_candidate(filename=filename, config=configuration)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 287, in load_merge_candidate
+    self._load_candidate(filename, config, False)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 251, in _load_candidate
+    self._lock()
+    ~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 169, in _lock
+    raise LockError(str(jle))
+napalm.base.exceptions.LockError: LockError(severity: error, bad_element: None, message: configuration database modified)
+
+2025-08-28 17:31:09,461 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'configure_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook5.py", line 11, in configure_some_data
+    task.run(task=napalm_configure, configuration="set snmp community napalmtest")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2025-08-28 17:33:13,066 -  nornir.core -     INFO -        run() - Running task 'configure_some_data' with args {} on 2 hosts
+2025-08-28 17:33:13,715 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 835, in execute
+    rpc_rsp_e = self._rpc_reply(
+        rpc_cmd_e,
+        ignore_warning=ignore_warning,
+        filter_xml=kvargs.get("filter_xml"),
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 1487, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/manager.py", line 257, in execute
+    return cls(self._session,
+           ~~~~~~~~~~~~~~~~~~
+    ...<3 lines>...
+               raise_mode=self._raise_mode,
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               huge_tree=self._huge_tree).request(*args, **kwds)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+           ~~~~~~~~~~~~~^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/rpc.py", line 375, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: 
+configuration database modified
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/utils/config.py", line 613, in lock
+    self.rpc.lock_configuration()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/rpcmeta.py", line 363, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 855, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: configuration database modified)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 166, in _lock
+    self.device.cu.lock()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/utils/config.py", line 616, in lock
+    raise LockError(rsp=err.rsp)
+jnpr.junos.exception.LockError: LockError(severity: error, bad_element: None, message: configuration database modified)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 36, in napalm_configure
+    device.load_merge_candidate(filename=filename, config=configuration)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 287, in load_merge_candidate
+    self._load_candidate(filename, config, False)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 251, in _load_candidate
+    self._lock()
+    ~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 169, in _lock
+    raise LockError(str(jle))
+napalm.base.exceptions.LockError: LockError(severity: error, bad_element: None, message: configuration database modified)
+
+2025-08-28 17:33:13,716 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'configure_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook5.py", line 11, in configure_some_data
+    task.run(task=napalm_configure, configuration="set snmp community napalmtest")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2025-08-28 17:33:53,144 -  nornir.core -     INFO -        run() - Running task 'configure_some_data' with args {} on 2 hosts
+2025-12-04 15:12:25,629 -  nornir.core -     INFO -        run() - Running task 'print_me' with args {} on 2 hosts
+2025-12-04 15:13:02,357 -  nornir.core -     INFO -        run() - Running task 'configure_some_data' with args {} on 2 hosts
+2025-12-04 15:13:03,464 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 835, in execute
+    rpc_rsp_e = self._rpc_reply(
+        rpc_cmd_e,
+        ignore_warning=ignore_warning,
+        filter_xml=kvargs.get("filter_xml"),
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 1487, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/manager.py", line 257, in execute
+    return cls(self._session,
+           ~~~~~~~~~~~~~~~~~~
+    ...<3 lines>...
+               raise_mode=self._raise_mode,
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               huge_tree=self._huge_tree).request(*args, **kwds)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+           ~~~~~~~~~~~~~^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/rpc.py", line 375, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: 
+configuration database modified
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/utils/config.py", line 613, in lock
+    self.rpc.lock_configuration()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/rpcmeta.py", line 363, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 855, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: configuration database modified)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 166, in _lock
+    self.device.cu.lock()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/utils/config.py", line 616, in lock
+    raise LockError(rsp=err.rsp)
+jnpr.junos.exception.LockError: LockError(severity: error, bad_element: None, message: configuration database modified)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 36, in napalm_configure
+    device.load_merge_candidate(filename=filename, config=configuration)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 287, in load_merge_candidate
+    self._load_candidate(filename, config, False)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 251, in _load_candidate
+    self._lock()
+    ~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 169, in _lock
+    raise LockError(str(jle))
+napalm.base.exceptions.LockError: LockError(severity: error, bad_element: None, message: configuration database modified)
+
+2025-12-04 15:13:03,465 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'configure_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook5.py", line 11, in configure_some_data
+    task.run(task=napalm_configure, configuration="set snmp community napalmtest")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2025-12-04 15:13:18,417 -  nornir.core -     INFO -        run() - Running task 'configure_some_data' with args {} on 2 hosts
+2025-12-04 15:13:19,217 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 835, in execute
+    rpc_rsp_e = self._rpc_reply(
+        rpc_cmd_e,
+        ignore_warning=ignore_warning,
+        filter_xml=kvargs.get("filter_xml"),
+    )
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 1487, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/manager.py", line 257, in execute
+    return cls(self._session,
+           ~~~~~~~~~~~~~~~~~~
+    ...<3 lines>...
+               raise_mode=self._raise_mode,
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               huge_tree=self._huge_tree).request(*args, **kwds)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+           ~~~~~~~~~~~~~^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/ncclient/operations/rpc.py", line 375, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: 
+configuration database modified
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/utils/config.py", line 613, in lock
+    self.rpc.lock_configuration()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/rpcmeta.py", line 363, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/device.py", line 855, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: configuration database modified)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 166, in _lock
+    self.device.cu.lock()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/jnpr/junos/utils/config.py", line 616, in lock
+    raise LockError(rsp=err.rsp)
+jnpr.junos.exception.LockError: LockError(severity: error, bad_element: None, message: configuration database modified)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 36, in napalm_configure
+    device.load_merge_candidate(filename=filename, config=configuration)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 287, in load_merge_candidate
+    self._load_candidate(filename, config, False)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 251, in _load_candidate
+    self._lock()
+    ~~~~~~~~~~^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/napalm/junos/junos.py", line 169, in _lock
+    raise LockError(str(jle))
+napalm.base.exceptions.LockError: LockError(severity: error, bad_element: None, message: configuration database modified)
+
+2025-12-04 15:13:19,218 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'configure_some_data' failed with traceback:
+Traceback (most recent call last):
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/jcs/automation/Nornir2/runbook5.py", line 11, in configure_some_data
+    task.run(task=napalm_configure, configuration="set snmp community napalmtest")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jcs/automation/.virtal/lib/python3.13/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2025-12-04 15:13:52,357 -  nornir.core -     INFO -        run() - Running task 'new_random_test' with args {} on 2 hosts
+2025-12-04 15:14:09,123 -  nornir.core -     INFO -        run() - Running task 'get_some_data' with args {} on 2 hosts

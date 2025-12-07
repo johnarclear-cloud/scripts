@@ -1,0 +1,16 @@
+---
+
+- name: "testing hostname config"
+  hosts: all 
+
+  tasks:
+    - name: "push some snmp info"
+      junipernetworks.junos.junos_hostname:
+        config:
+          hostname: "r1.jcs"
+        state: replaced 
+      register: junos_conf
+
+    - name: "print the config"
+      debug:
+        msg="{{ junos_conf }}"

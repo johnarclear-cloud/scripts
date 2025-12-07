@@ -1,0 +1,9 @@
+---
+
+## this calls the test_module.py script
+- name: "using the OSPF Role"
+  hosts: juniper
+
+
+  roles:
+    - role_configure_ospf

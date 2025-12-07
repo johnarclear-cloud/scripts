@@ -1,0 +1,20 @@
+---
+- name: "ospf playbook"
+  hosts: juniper
+
+  roles:
+    - role_configure_ospf
+
+  tasks:
+    - name: "pause for 20 seconds to let ospf establish "
+      ansible.builtin.pause:
+        seconds: 20
+
+    - name: "parse ospf"
+      neighbor_check:
+        ip: "{{ ansible_host}}"
+      register: result 
+
+    - name: "print the output of custom module"
+      debug:
+        msg: "{{ result }}"
